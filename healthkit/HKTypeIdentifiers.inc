@@ -1,0 +1,101 @@
+{ Parsed from HealthKit.framework HKTypeIdentifiers.h }
+{$ifdef TYPES}
+type
+  NS_STRING_ENUM = NSString *HKQuantityTypeIdentifier;
+  NS_STRING_ENUMPtr = ^NS_STRING_ENUM;
+{$endif}
+
+{$ifdef EXTERNAL_SYMBOLS}
+var
+  HKQuantityTypeIdentifierBodyMassIndex: HKQuantityTypeIdentifier { available in 8_0, 2_0 }; cvar; external;
+  HKQuantityTypeIdentifierBodyFatPercentage: HKQuantityTypeIdentifier { available in 8_0, 2_0 }; cvar; external;
+  HKQuantityTypeIdentifierHeight: HKQuantityTypeIdentifier { available in 8_0, 2_0 }; cvar; external;
+  HKQuantityTypeIdentifierBodyMass: HKQuantityTypeIdentifier { available in 8_0, 2_0 }; cvar; external;
+  HKQuantityTypeIdentifierLeanBodyMass: HKQuantityTypeIdentifier { available in 8_0, 2_0 }; cvar; external;
+  HKQuantityTypeIdentifierStepCount: HKQuantityTypeIdentifier { available in 8_0, 2_0 }; cvar; external;
+  HKQuantityTypeIdentifierDistanceWalkingRunning: HKQuantityTypeIdentifier { available in 8_0, 2_0 }; cvar; external;
+  HKQuantityTypeIdentifierDistanceCycling: HKQuantityTypeIdentifier { available in 8_0, 2_0 }; cvar; external;
+  HKQuantityTypeIdentifierDistanceWheelchair: HKQuantityTypeIdentifier { available in 10_0, 3_0 }; cvar; external;
+  HKQuantityTypeIdentifierBasalEnergyBurned: HKQuantityTypeIdentifier { available in 8_0, 2_0 }; cvar; external;
+  HKQuantityTypeIdentifierActiveEnergyBurned: HKQuantityTypeIdentifier { available in 8_0, 2_0 }; cvar; external;
+  HKQuantityTypeIdentifierFlightsClimbed: HKQuantityTypeIdentifier { available in 8_0, 2_0 }; cvar; external;
+  HKQuantityTypeIdentifierNikeFuel: HKQuantityTypeIdentifier { available in 8_0, 2_0 }; cvar; external;
+  HKQuantityTypeIdentifierAppleExerciseTime: HKQuantityTypeIdentifier { available in 9_3, 2_2 }; cvar; external;
+  HKQuantityTypeIdentifierPushCount: HKQuantityTypeIdentifier { available in 10_0, 3_0 }; cvar; external;
+  HKQuantityTypeIdentifierDistanceSwimming: HKQuantityTypeIdentifier { available in 10_0, 3_0 }; cvar; external;
+  HKQuantityTypeIdentifierSwimmingStrokeCount: HKQuantityTypeIdentifier { available in 10_0, 3_0 }; cvar; external;
+  HKQuantityTypeIdentifierHeartRate: HKQuantityTypeIdentifier { available in 8_0, 2_0 }; cvar; external;
+  HKQuantityTypeIdentifierBodyTemperature: HKQuantityTypeIdentifier { available in 8_0, 2_0 }; cvar; external;
+  HKQuantityTypeIdentifierBasalBodyTemperature: HKQuantityTypeIdentifier { available in 9_0, 2_0 }; cvar; external;
+  HKQuantityTypeIdentifierBloodPressureSystolic: HKQuantityTypeIdentifier { available in 8_0, 2_0 }; cvar; external;
+  HKQuantityTypeIdentifierBloodPressureDiastolic: HKQuantityTypeIdentifier { available in 8_0, 2_0 }; cvar; external;
+  HKQuantityTypeIdentifierRespiratoryRate: HKQuantityTypeIdentifier { available in 8_0, 2_0 }; cvar; external;
+  HKQuantityTypeIdentifierOxygenSaturation: HKQuantityTypeIdentifier { available in 8_0, 2_0 }; cvar; external;
+  HKQuantityTypeIdentifierPeripheralPerfusionIndex: HKQuantityTypeIdentifier { available in 8_0, 2_0 }; cvar; external;
+  HKQuantityTypeIdentifierBloodGlucose: HKQuantityTypeIdentifier { available in 8_0, 2_0 }; cvar; external;
+  HKQuantityTypeIdentifierNumberOfTimesFallen: HKQuantityTypeIdentifier { available in 8_0, 2_0 }; cvar; external;
+  HKQuantityTypeIdentifierElectrodermalActivity: HKQuantityTypeIdentifier { available in 8_0, 2_0 }; cvar; external;
+  HKQuantityTypeIdentifierInhalerUsage: HKQuantityTypeIdentifier { available in 8_0, 2_0 }; cvar; external;
+  HKQuantityTypeIdentifierBloodAlcoholContent: HKQuantityTypeIdentifier { available in 8_0, 2_0 }; cvar; external;
+  HKQuantityTypeIdentifierForcedVitalCapacity: HKQuantityTypeIdentifier { available in 8_0, 2_0 }; cvar; external;
+  HKQuantityTypeIdentifierForcedExpiratoryVolume1: HKQuantityTypeIdentifier { available in 8_0, 2_0 }; cvar; external;
+  HKQuantityTypeIdentifierPeakExpiratoryFlowRate: HKQuantityTypeIdentifier { available in 8_0, 2_0 }; cvar; external;
+  HKQuantityTypeIdentifierDietaryFatTotal: HKQuantityTypeIdentifier { available in 8_0, 2_0 }; cvar; external;
+  HKQuantityTypeIdentifierDietaryFatPolyunsaturated: HKQuantityTypeIdentifier { available in 8_0, 2_0 }; cvar; external;
+  HKQuantityTypeIdentifierDietaryFatMonounsaturated: HKQuantityTypeIdentifier { available in 8_0, 2_0 }; cvar; external;
+  HKQuantityTypeIdentifierDietaryFatSaturated: HKQuantityTypeIdentifier { available in 8_0, 2_0 }; cvar; external;
+  HKQuantityTypeIdentifierDietaryCholesterol: HKQuantityTypeIdentifier { available in 8_0, 2_0 }; cvar; external;
+  HKQuantityTypeIdentifierDietarySodium: HKQuantityTypeIdentifier { available in 8_0, 2_0 }; cvar; external;
+  HKQuantityTypeIdentifierDietaryCarbohydrates: HKQuantityTypeIdentifier { available in 8_0, 2_0 }; cvar; external;
+  HKQuantityTypeIdentifierDietaryFiber: HKQuantityTypeIdentifier { available in 8_0, 2_0 }; cvar; external;
+  HKQuantityTypeIdentifierDietarySugar: HKQuantityTypeIdentifier { available in 8_0, 2_0 }; cvar; external;
+  HKQuantityTypeIdentifierDietaryEnergyConsumed: HKQuantityTypeIdentifier { available in 8_0, 2_0 }; cvar; external;
+  HKQuantityTypeIdentifierDietaryProtein: HKQuantityTypeIdentifier { available in 8_0, 2_0 }; cvar; external;
+  HKQuantityTypeIdentifierDietaryVitaminA: HKQuantityTypeIdentifier { available in 8_0, 2_0 }; cvar; external;
+  HKQuantityTypeIdentifierDietaryVitaminB6: HKQuantityTypeIdentifier { available in 8_0, 2_0 }; cvar; external;
+  HKQuantityTypeIdentifierDietaryVitaminB12: HKQuantityTypeIdentifier { available in 8_0, 2_0 }; cvar; external;
+  HKQuantityTypeIdentifierDietaryVitaminC: HKQuantityTypeIdentifier { available in 8_0, 2_0 }; cvar; external;
+  HKQuantityTypeIdentifierDietaryVitaminD: HKQuantityTypeIdentifier { available in 8_0, 2_0 }; cvar; external;
+  HKQuantityTypeIdentifierDietaryVitaminE: HKQuantityTypeIdentifier { available in 8_0, 2_0 }; cvar; external;
+  HKQuantityTypeIdentifierDietaryVitaminK: HKQuantityTypeIdentifier { available in 8_0, 2_0 }; cvar; external;
+  HKQuantityTypeIdentifierDietaryCalcium: HKQuantityTypeIdentifier { available in 8_0, 2_0 }; cvar; external;
+  HKQuantityTypeIdentifierDietaryIron: HKQuantityTypeIdentifier { available in 8_0, 2_0 }; cvar; external;
+  HKQuantityTypeIdentifierDietaryThiamin: HKQuantityTypeIdentifier { available in 8_0, 2_0 }; cvar; external;
+  HKQuantityTypeIdentifierDietaryRiboflavin: HKQuantityTypeIdentifier { available in 8_0, 2_0 }; cvar; external;
+  HKQuantityTypeIdentifierDietaryNiacin: HKQuantityTypeIdentifier { available in 8_0, 2_0 }; cvar; external;
+  HKQuantityTypeIdentifierDietaryFolate: HKQuantityTypeIdentifier { available in 8_0, 2_0 }; cvar; external;
+  HKQuantityTypeIdentifierDietaryBiotin: HKQuantityTypeIdentifier { available in 8_0, 2_0 }; cvar; external;
+  HKQuantityTypeIdentifierDietaryPantothenicAcid: HKQuantityTypeIdentifier { available in 8_0, 2_0 }; cvar; external;
+  HKQuantityTypeIdentifierDietaryPhosphorus: HKQuantityTypeIdentifier { available in 8_0, 2_0 }; cvar; external;
+  HKQuantityTypeIdentifierDietaryIodine: HKQuantityTypeIdentifier { available in 8_0, 2_0 }; cvar; external;
+  HKQuantityTypeIdentifierDietaryMagnesium: HKQuantityTypeIdentifier { available in 8_0, 2_0 }; cvar; external;
+  HKQuantityTypeIdentifierDietaryZinc: HKQuantityTypeIdentifier { available in 8_0, 2_0 }; cvar; external;
+  HKQuantityTypeIdentifierDietarySelenium: HKQuantityTypeIdentifier { available in 8_0, 2_0 }; cvar; external;
+  HKQuantityTypeIdentifierDietaryCopper: HKQuantityTypeIdentifier { available in 8_0, 2_0 }; cvar; external;
+  HKQuantityTypeIdentifierDietaryManganese: HKQuantityTypeIdentifier { available in 8_0, 2_0 }; cvar; external;
+  HKQuantityTypeIdentifierDietaryChromium: HKQuantityTypeIdentifier { available in 8_0, 2_0 }; cvar; external;
+  HKQuantityTypeIdentifierDietaryMolybdenum: HKQuantityTypeIdentifier { available in 8_0, 2_0 }; cvar; external;
+  HKQuantityTypeIdentifierDietaryChloride: HKQuantityTypeIdentifier { available in 8_0, 2_0 }; cvar; external;
+  HKQuantityTypeIdentifierDietaryPotassium: HKQuantityTypeIdentifier { available in 8_0, 2_0 }; cvar; external;
+  HKQuantityTypeIdentifierDietaryCaffeine: HKQuantityTypeIdentifier { available in 8_0, 2_0 }; cvar; external;
+  HKQuantityTypeIdentifierDietaryWater: HKQuantityTypeIdentifier { available in 9_0, 2_0 }; cvar; external;
+  HKQuantityTypeIdentifierUVExposure: HKQuantityTypeIdentifier { available in 9_0, 2_0 }; cvar; external;
+  HKCategoryTypeIdentifierSleepAnalysis: HKCategoryTypeIdentifier { available in 8_0, 2_0 }; cvar; external;
+  HKCategoryTypeIdentifierAppleStandHour: HKCategoryTypeIdentifier { available in 9_0, 2_0 }; cvar; external;
+  HKCategoryTypeIdentifierCervicalMucusQuality: HKCategoryTypeIdentifier { available in 9_0, 2_0 }; cvar; external;
+  HKCategoryTypeIdentifierOvulationTestResult: HKCategoryTypeIdentifier { available in 9_0, 2_0 }; cvar; external;
+  HKCategoryTypeIdentifierMenstrualFlow: HKCategoryTypeIdentifier { available in 9_0, 2_0 }; cvar; external;
+  HKCategoryTypeIdentifierIntermenstrualBleeding: HKCategoryTypeIdentifier { available in 9_0, 2_0 }; cvar; external;
+  HKCategoryTypeIdentifierSexualActivity: HKCategoryTypeIdentifier { available in 9_0, 2_0 }; cvar; external;
+  HKCategoryTypeIdentifierMindfulSession: HKCategoryTypeIdentifier { available in 10_0, 3_0 }; cvar; external;
+  HKCharacteristicTypeIdentifierBiologicalSex: HKCharacteristicTypeIdentifier { available in 8_0, 2_0 }; cvar; external;
+  HKCharacteristicTypeIdentifierBloodType: HKCharacteristicTypeIdentifier { available in 8_0, 2_0 }; cvar; external;
+  HKCharacteristicTypeIdentifierDateOfBirth: HKCharacteristicTypeIdentifier { available in 8_0, 2_0 }; cvar; external;
+  HKCharacteristicTypeIdentifierFitzpatrickSkinType: HKCharacteristicTypeIdentifier { available in 9_0, 2_0 }; cvar; external;
+  HKCharacteristicTypeIdentifierWheelchairUse: HKCharacteristicTypeIdentifier { available in 10_0, 3_0 }; cvar; external;
+  HKCorrelationTypeIdentifierBloodPressure: HKCorrelationTypeIdentifier { available in 8_0, 2_0 }; cvar; external;
+  HKCorrelationTypeIdentifierFood: HKCorrelationTypeIdentifier { available in 8_0, 2_0 }; cvar; external;
+  HKDocumentTypeIdentifierCDA: HKDocumentTypeIdentifier { available in 10_0, 3_0 }; cvar; external;
+  HKWorkoutTypeIdentifier: NSString { available in 8_0, 2_0 }; cvar; external;
+{$endif}
+

@@ -1,0 +1,13 @@
+{$define FRAMEWORK_LOADED_CFNETWORK}
+{$include CFNetwork.inc}
+{$include CFNetworkDefs.inc}
+{$include CFNetworkErrors.inc}
+{$include CFHost.inc}
+{$include CFNetServices.inc}
+{$include CFSocketStream.inc}
+{$include CFFTPStream.inc}
+{$include CFHTTPMessage.inc}
+{$include CFHTTPStream.inc}
+{$include CFHTTPAuthentication.inc}
+{$include CFNetDiagnostics.inc}
+{$include CFProxySupport.inc}

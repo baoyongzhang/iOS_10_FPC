@@ -1,0 +1,9 @@
+{$define FRAMEWORK_LOADED_IAD}
+{$include iAd.inc}
+{$include ADBannerView.inc}
+{$include ADBannerView_Deprecated.inc}
+{$include ADClient.inc}
+{$include ADInterstitialAd.inc}
+{$include MPMoviePlayerController_iAdPreroll.inc}
+{$include AVPlayerViewController_iAdPreroll.inc}
+{$include UIViewControlleriAdAdditions.inc}

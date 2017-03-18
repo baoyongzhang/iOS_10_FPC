@@ -1,0 +1,9 @@
+{$define FRAMEWORK_LOADED_VIDEOSUBSCRIBERACCOUNT}
+{$include VideoSubscriberAccount.inc}
+{$include VideoSubscriberAccountDefines.inc}
+{$include VideoSubscriberAccountErrors.inc}
+{$include VSAccountManager.inc}
+{$include VSAccountManagerResult.inc}
+{$include VSAccountMetadata.inc}
+{$include VSAccountProviderResponse.inc}
+{$include VSAccountMetadataRequest.inc}

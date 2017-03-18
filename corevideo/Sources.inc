@@ -1,0 +1,14 @@
+{$define FRAMEWORK_LOADED_COREVIDEO}
+{$include CoreVideo.inc}
+{$include CVBase.inc}
+{$include CVReturn.inc}
+{$include CVHostTime.inc}
+{$include CVBuffer.inc}
+{$include CVImageBuffer.inc}
+{$include CVPixelBuffer.inc}
+{$include CVPixelBufferPool.inc}
+{$include CVOpenGLESTexture.inc}
+{$include CVOpenGLESTextureCache.inc}
+{$include CVPixelFormatDescription.inc}
+{$include CVMetalTexture.inc}
+{$include CVMetalTextureCache.inc}

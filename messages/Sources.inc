@@ -1,0 +1,15 @@
+{$define FRAMEWORK_LOADED_MESSAGES}
+{$include Messages.inc}
+{$include MessagesDefines.inc}
+{$include MSMessagesAppViewController.inc}
+{$include MSConversation.inc}
+{$include MSSession.inc}
+{$include MSMessage.inc}
+{$include MSMessageLayout.inc}
+{$include MSMessageTemplateLayout.inc}
+{$include MSSticker.inc}
+{$include MSStickerView.inc}
+{$include MSStickerBrowserViewDataSource.inc}
+{$include MSStickerBrowserView.inc}
+{$include MSStickerBrowserViewController.inc}
+{$include MSMessageError.inc}

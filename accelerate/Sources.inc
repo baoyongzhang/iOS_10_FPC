@@ -1,0 +1,13 @@
+{$define FRAMEWORK_LOADED_ACCELERATE}
+{$include Accelerate.inc}
+{$include vecLibTypes.inc}
+{$include vBasicOps.inc}
+{$include vBigNum.inc}
+{$include vectorOps.inc}
+{$include vfp.inc}
+{$include vDSP_translate.inc}
+{$include vDSP.inc}
+{$include cblas.inc}
+{$include clapack.inc}
+{$include vForce.inc}
+{$include vecLib.inc}

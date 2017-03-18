@@ -1,0 +1,16 @@
+{$define FRAMEWORK_LOADED_MODELIO}
+{$include ModelIO.inc}
+{$include ModelIOExports.inc}
+{$include MDLTypes.inc}
+{$include MDLTransform.inc}
+{$include MDLObject.inc}
+{$include MDLMeshBuffer.inc}
+{$include MDLVertexDescriptor.inc}
+{$include MDLAsset.inc}
+{$include MDLCamera.inc}
+{$include MDLLight.inc}
+{$include MDLMaterial.inc}
+{$include MDLSubmesh.inc}
+{$include MDLMesh.inc}
+{$include MDLTexture.inc}
+{$include MDLVoxelArray.inc}

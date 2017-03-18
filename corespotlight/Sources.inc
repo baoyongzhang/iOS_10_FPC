@@ -1,0 +1,17 @@
+{$define FRAMEWORK_LOADED_CORESPOTLIGHT}
+{$include CoreSpotlight.inc}
+{$include CSBase.inc}
+{$include CSPerson.inc}
+{$include CSSearchableItemAttributeSet_General.inc}
+{$include CSSearchableItemAttributeSet_Documents.inc}
+{$include CSSearchableItemAttributeSet_Events.inc}
+{$include CSSearchableItemAttributeSet_Messaging.inc}
+{$include CSSearchableItemAttributeSet_Media.inc}
+{$include CSSearchableItemAttributeSet_Images.inc}
+{$include CSSearchableItemAttributeSet_Places.inc}
+{$include CSSearchableItemAttributeSet_Categories.inc}
+{$include CSSearchableItemAttributeSet.inc}
+{$include CSSearchableItem.inc}
+{$include CSSearchableIndex.inc}
+{$include CSIndexExtensionRequestHandler.inc}
+{$include CSSearchQuery.inc}
