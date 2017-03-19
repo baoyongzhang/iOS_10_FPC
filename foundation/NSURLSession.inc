@@ -57,7 +57,7 @@ type
     function sharedSession: NSURLSession; message 'sharedSession';
     {$endif}
     class function sessionWithConfiguration (configuration: NSURLSessionConfiguration): NSURLSession; message 'sessionWithConfiguration:';
-    class function sessionWithConfiguration_delegate_delegateQueue (configuration: NSURLSessionConfiguration; delegate: nullable NSURLSessionDelegateProtocol; queue: nullable NSOperationQueuePtr): NSURLSession; message 'sessionWithConfiguration:delegate:delegateQueue:';
+    class function sessionWithConfiguration_delegate_delegateQueue (configuration: NSURLSessionConfiguration; delegate: NSURLSessionDelegateProtocol; queue: NSOperationQueuePtr): NSURLSession; message 'sessionWithConfiguration:delegate:delegateQueue:';
     function delegateQueue: NSOperationQueue; message 'delegateQueue';
     function delegate: NSURLSessionDelegateProtocol; message 'delegate';
     function configuration: NSURLSessionConfiguration; message 'configuration';
@@ -87,7 +87,7 @@ type
     function dataTaskWithRequest_completionHandler (request: NSURLRequest; completionHandler: OpaqueCBlock): NSURLSessionDataTask; message 'dataTaskWithRequest:completionHandler:';
     function dataTaskWithURL_completionHandler (url: NSURL; completionHandler: OpaqueCBlock): NSURLSessionDataTask; message 'dataTaskWithURL:completionHandler:';
     function uploadTaskWithRequest_fromFile_completionHandler (request: NSURLRequest; fileURL: NSURL; completionHandler: OpaqueCBlock): NSURLSessionUploadTask; message 'uploadTaskWithRequest:fromFile:completionHandler:';
-    function uploadTaskWithRequest_fromData_completionHandler (request: NSURLRequest; bodyData: nullable NSDataPtr; completionHandler: OpaqueCBlock): NSURLSessionUploadTask; message 'uploadTaskWithRequest:fromData:completionHandler:';
+    function uploadTaskWithRequest_fromData_completionHandler (request: NSURLRequest; bodyData: NSDataPtr; completionHandler: OpaqueCBlock): NSURLSessionUploadTask; message 'uploadTaskWithRequest:fromData:completionHandler:';
     function downloadTaskWithRequest_completionHandler (request: NSURLRequest; completionHandler: OpaqueCBlock): NSURLSessionDownloadTask; message 'downloadTaskWithRequest:completionHandler:';
     function downloadTaskWithURL_completionHandler (url: NSURL; completionHandler: OpaqueCBlock): NSURLSessionDownloadTask; message 'downloadTaskWithURL:completionHandler:';
     function downloadTaskWithResumeData_completionHandler (resumeData: NSData; completionHandler: OpaqueCBlock): NSURLSessionDownloadTask; message 'downloadTaskWithResumeData:completionHandler:';
@@ -130,7 +130,7 @@ type
     function priority: single; message 'priority';
 
     { Adopted protocols }
-    function copyWithZone (zone: nullable NSZonePtr): id; message 'copyWithZone:';
+    function copyWithZone (zone: NSZonePtr): id; message 'copyWithZone:';
   end;
 {$endif}
 
@@ -222,7 +222,7 @@ type
     function protocolClasses: ClassProtocolPtr; message 'protocolClasses';
 
     { Adopted protocols }
-    function copyWithZone (zone: nullable NSZonePtr): id; message 'copyWithZone:';
+    function copyWithZone (zone: NSZonePtr): id; message 'copyWithZone:';
   end;
 {$endif}
 
@@ -253,7 +253,7 @@ const
 type
   NSURLSessionDelegateProtocol = objcprotocol external name 'NSURLSessionDelegate' (NSObjectProtocol)
   optional
-    procedure URLSession_didBecomeInvalidWithError (session: NSURLSession; error: nullable NSErrorPtr); message 'URLSession:didBecomeInvalidWithError:';
+    procedure URLSession_didBecomeInvalidWithError (session: NSURLSession; error: NSErrorPtr); message 'URLSession:didBecomeInvalidWithError:';
     procedure URLSession_didReceiveChallenge_completionHandler (session: NSURLSession; challenge: NSURLAuthenticationChallenge; completionHandler: OpaqueCBlock); message 'URLSession:didReceiveChallenge:completionHandler:';
     procedure URLSessionDidFinishEventsForBackgroundURLSession (session: NSURLSession); message 'URLSessionDidFinishEventsForBackgroundURLSession:'; { available in 7_0 }
   end;
@@ -266,7 +266,7 @@ type
     procedure URLSession_task_needNewBodyStream (session: NSURLSession; task: NSURLSessionTask; completionHandler: OpaqueCBlock); message 'URLSession:task:needNewBodyStream:';
     procedure URLSession_task_didSendBodyData_totalBytesSent_totalBytesExpectedToSend (session: NSURLSession; task: NSURLSessionTask; bytesSent: cint64; totalBytesSent: cint64; totalBytesExpectedToSend: cint64); message 'URLSession:task:didSendBodyData:totalBytesSent:totalBytesExpectedToSend:';
     procedure URLSession_task_didFinishCollectingMetrics (session: NSURLSession; task: NSURLSessionTask; metrics: NSURLSessionTaskMetrics); message 'URLSession:task:didFinishCollectingMetrics:'; { available in macosx(10.12 }
-    procedure URLSession_task_didCompleteWithError (session: NSURLSession; task: NSURLSessionTask; error: nullable NSErrorPtr); message 'URLSession:task:didCompleteWithError:';
+    procedure URLSession_task_didCompleteWithError (session: NSURLSession; task: NSURLSessionTask; error: NSErrorPtr); message 'URLSession:task:didCompleteWithError:';
   end;
 
 type

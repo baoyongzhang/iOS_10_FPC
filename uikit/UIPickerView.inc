@@ -43,9 +43,9 @@ type
   optional
     function pickerView_widthForComponent (pickerView: UIPickerView; component: NSInteger): CGFloat; message 'pickerView:widthForComponent:';
     function pickerView_rowHeightForComponent (pickerView: UIPickerView; component: NSInteger): CGFloat; message 'pickerView:rowHeightForComponent:';
-    function pickerView_titleForRow_forComponent (pickerView: UIPickerView; row: NSInteger; component: NSInteger): nullable NSStringPtr; message 'pickerView:titleForRow:forComponent:';
-    function pickerView_attributedTitleForRow_forComponent (pickerView: UIPickerView; row: NSInteger; component: NSInteger): nullable NSAttributedStringPtr; message 'pickerView:attributedTitleForRow:forComponent:'; { available in 6_0 }
-    function pickerView_viewForRow_forComponent_reusingView (pickerView: UIPickerView; row: NSInteger; component: NSInteger; view: nullable UIViewPtr): UIView; message 'pickerView:viewForRow:forComponent:reusingView:';
+    function pickerView_titleForRow_forComponent (pickerView: UIPickerView; row: NSInteger; component: NSInteger): NSStringPtr; message 'pickerView:titleForRow:forComponent:';
+    function pickerView_attributedTitleForRow_forComponent (pickerView: UIPickerView; row: NSInteger; component: NSInteger): NSAttributedStringPtr; message 'pickerView:attributedTitleForRow:forComponent:'; { available in 6_0 }
+    function pickerView_viewForRow_forComponent_reusingView (pickerView: UIPickerView; row: NSInteger; component: NSInteger; view: UIViewPtr): UIView; message 'pickerView:viewForRow:forComponent:reusingView:';
     procedure pickerView_didSelectRow_inComponent (pickerView: UIPickerView; row: NSInteger; component: NSInteger); message 'pickerView:didSelectRow:inComponent:';
   end;
 {$endif}

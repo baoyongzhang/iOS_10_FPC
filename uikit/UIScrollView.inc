@@ -116,9 +116,9 @@ type
     procedure scrollViewWillBeginDecelerating (scrollView: UIScrollView); message 'scrollViewWillBeginDecelerating:';
     procedure scrollViewDidEndDecelerating (scrollView: UIScrollView); message 'scrollViewDidEndDecelerating:';
     procedure scrollViewDidEndScrollingAnimation (scrollView: UIScrollView); message 'scrollViewDidEndScrollingAnimation:';
-    function viewForZoomingInScrollView (scrollView: UIScrollView): nullable UIViewPtr; message 'viewForZoomingInScrollView:';
-    procedure scrollViewWillBeginZooming_withView (scrollView: UIScrollView; view: nullable UIViewPtr); message 'scrollViewWillBeginZooming:withView:'; { available in 3_2 }
-    procedure scrollViewDidEndZooming_withView_atScale (scrollView: UIScrollView; view: nullable UIViewPtr; scale: CGFloat); message 'scrollViewDidEndZooming:withView:atScale:';
+    function viewForZoomingInScrollView (scrollView: UIScrollView): UIViewPtr; message 'viewForZoomingInScrollView:';
+    procedure scrollViewWillBeginZooming_withView (scrollView: UIScrollView; view: UIViewPtr); message 'scrollViewWillBeginZooming:withView:'; { available in 3_2 }
+    procedure scrollViewDidEndZooming_withView_atScale (scrollView: UIScrollView; view: UIViewPtr; scale: CGFloat); message 'scrollViewDidEndZooming:withView:atScale:';
     function scrollViewShouldScrollToTop (scrollView: UIScrollView): boolean; message 'scrollViewShouldScrollToTop:';
     procedure scrollViewDidScrollToTop (scrollView: UIScrollView); message 'scrollViewDidScrollToTop:';
   end;

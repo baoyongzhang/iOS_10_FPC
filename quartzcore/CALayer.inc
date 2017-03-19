@@ -36,9 +36,9 @@ type
     class function layer: instancetype; message 'layer';
     function init: instancetype; message 'init';
     function initWithLayer (layer_: id): instancetype; message 'initWithLayer:';
-    function presentationLayer: nullable instancetype; message 'presentationLayer';
+    function presentationLayer: instancetype; message 'presentationLayer';
     function modelLayer: instancetype; message 'modelLayer';
-    class function defaultValueForKey (key: NSString): nullable id; message 'defaultValueForKey:';
+    class function defaultValueForKey (key: NSString): id; message 'defaultValueForKey:';
     class function needsDisplayForKey (key: NSString): boolean; message 'needsDisplayForKey:';
     function shouldArchiveValueForKey (key: NSString): boolean; message 'shouldArchiveValueForKey:';
     procedure setBounds(newValue: CGRect); message 'setBounds:';
@@ -70,8 +70,8 @@ type
     function sublayers: CALayer *ProtocolPtr; message 'sublayers';
     procedure addSublayer (layer_: CALayer); message 'addSublayer:';
     procedure insertSublayer_atIndex (layer_: CALayer; idx: cuint); message 'insertSublayer:atIndex:';
-    procedure insertSublayer_below (layer_: CALayer; sibling: nullable CALayerPtr); message 'insertSublayer:below:';
-    procedure insertSublayer_above (layer_: CALayer; sibling: nullable CALayerPtr); message 'insertSublayer:above:';
+    procedure insertSublayer_below (layer_: CALayer; sibling:  CALayerPtr); message 'insertSublayer:below:';
+    procedure insertSublayer_above (layer_: CALayer; sibling:  CALayerPtr); message 'insertSublayer:above:';
     procedure replaceSublayer_with (layer_: CALayer; layer2: CALayer); message 'replaceSublayer:with:';
     procedure setSublayerTransform(newValue: CATransform3D); message 'setSublayerTransform:';
     function sublayerTransform: CATransform3D; message 'sublayerTransform';
@@ -79,13 +79,13 @@ type
     function mask: CALayer; message 'mask';
     procedure setMasksToBounds(newValue: boolean); message 'setMasksToBounds:';
     function masksToBounds: boolean; message 'masksToBounds';
-    function convertPoint_fromLayer (p: CGPoint; l: nullable CALayerPtr): CGPoint; message 'convertPoint:fromLayer:';
-    function convertPoint_toLayer (p: CGPoint; l: nullable CALayerPtr): CGPoint; message 'convertPoint:toLayer:';
-    function convertRect_fromLayer (r: CGRect; l: nullable CALayerPtr): CGRect; message 'convertRect:fromLayer:';
-    function convertRect_toLayer (r: CGRect; l: nullable CALayerPtr): CGRect; message 'convertRect:toLayer:';
-    function convertTime_fromLayer (t: CFTimeInterval; l: nullable CALayerPtr): CFTimeInterval; message 'convertTime:fromLayer:';
-    function convertTime_toLayer (t: CFTimeInterval; l: nullable CALayerPtr): CFTimeInterval; message 'convertTime:toLayer:';
-    function hitTest (p: CGPoint): nullable CALayerPtr; message 'hitTest:';
+    function convertPoint_fromLayer (p: CGPoint; l:  CALayerPtr): CGPoint; message 'convertPoint:fromLayer:';
+    function convertPoint_toLayer (p: CGPoint; l: CALayerPtr): CGPoint; message 'convertPoint:toLayer:';
+    function convertRect_fromLayer (r: CGRect; l:  CALayerPtr): CGRect; message 'convertRect:fromLayer:';
+    function convertRect_toLayer (r: CGRect; l:  CALayerPtr): CGRect; message 'convertRect:toLayer:';
+    function convertTime_fromLayer (t: CFTimeInterval; l:  CALayerPtr): CFTimeInterval; message 'convertTime:fromLayer:';
+    function convertTime_toLayer (t: CFTimeInterval; l:  CALayerPtr): CFTimeInterval; message 'convertTime:toLayer:';
+    function hitTest (p: CGPoint):  CALayerPtr; message 'hitTest:';
     function containsPoint (p: CGPoint): boolean; message 'containsPoint:';
     procedure setContents(newValue: id); message 'setContents:';
     function contents: id; message 'contents';
@@ -159,15 +159,15 @@ type
     function needsLayout: boolean; message 'needsLayout';
     procedure layoutIfNeeded; message 'layoutIfNeeded';
     procedure layoutSublayers; message 'layoutSublayers';
-    class function defaultActionForKey (event: NSString): nullable CAActionProtocol; message 'defaultActionForKey:';
-    function actionForKey (event: NSString): nullable CAActionProtocol; message 'actionForKey:';
+    class function defaultActionForKey (event: NSString):  CAActionProtocol; message 'defaultActionForKey:';
+    function actionForKey (event: NSString):  CAActionProtocol; message 'actionForKey:';
     procedure setActions(newValue: NSDictionary>Ptr); message 'setActions:';
     function actions: NSDictionary>Ptr; message 'actions';
-    procedure addAnimation_forKey (anim: CAAnimation; key: nullable NSStringPtr); message 'addAnimation:forKey:';
+    procedure addAnimation_forKey (anim: CAAnimation; key:  NSStringPtr); message 'addAnimation:forKey:';
     procedure removeAllAnimations; message 'removeAllAnimations';
     procedure removeAnimationForKey (key: NSString); message 'removeAnimationForKey:';
-    function animationKeys: nullable NSString *ProtocolPtr; message 'animationKeys';
-    function animationForKey (key: NSString): nullable CAAnimationPtr; message 'animationForKey:';
+    function animationKeys:  NSString *ProtocolPtr; message 'animationKeys';
+    function animationForKey (key: NSString):  CAAnimationPtr; message 'animationForKey:';
     procedure setName(newValue: NSString); message 'setName:';
     function name: NSString; message 'name';
     procedure setDelegate(newValue: CALayerDelegateProtocol); message 'setDelegate:';
@@ -185,7 +185,7 @@ type
     procedure encodeWithCoder (aCoder: NSCoder); message 'encodeWithCoder:';
     procedure setFillMode(newValue: NSString); message 'setFillMode:';
     function fillMode: NSString; message 'fillMode';
-    function initWithCoder (aDecoder: NSCoder): nullable instancetype; message 'initWithCoder:';
+    function initWithCoder (aDecoder: NSCoder):  instancetype; message 'initWithCoder:';
     procedure setRepeatCount(newValue: single); message 'setRepeatCount:';
     function repeatCount: single; message 'repeatCount';
     procedure setRepeatDuration(newValue: CFTimeInterval); message 'setRepeatDuration:';
@@ -201,7 +201,7 @@ type
 
 type
   CAActionProtocol = objcprotocol external name 'CAAction'
-    procedure runActionForKey_object_arguments (event: NSString; anObject: id; dict: nullable NSDictionaryPtr); message 'runActionForKey:object:arguments:';
+    procedure runActionForKey_object_arguments (event: NSString; anObject: id; dict:  NSDictionaryPtr); message 'runActionForKey:object:arguments:';
   end;
 {$endif}
 
@@ -221,7 +221,7 @@ type
     procedure drawLayer_inContext (layer: CALayer; ctx: CGContextRef); message 'drawLayer:inContext:';
     procedure layerWillDraw (layer: CALayer); message 'layerWillDraw:'; { available starting in 10.12, 10.0, 10.0, 3.0 }
     procedure layoutSublayersOfLayer (layer: CALayer); message 'layoutSublayersOfLayer:';
-    function actionForLayer_forKey (layer: CALayer; event: NSString): nullable CAActionProtocol; message 'actionForLayer:forKey:';
+    function actionForLayer_forKey (layer: CALayer; event: NSString):  CAActionProtocol; message 'actionForLayer:forKey:';
   end;
 {$endif}
 

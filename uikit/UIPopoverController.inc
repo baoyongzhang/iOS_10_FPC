@@ -44,7 +44,7 @@ type
   optional
     function popoverControllerShouldDismissPopover (popoverController: UIPopoverController): boolean; message 'popoverControllerShouldDismissPopover:'; deprecated 'in 3_2, 9_0';
     procedure popoverControllerDidDismissPopover (popoverController: UIPopoverController); message 'popoverControllerDidDismissPopover:'; deprecated 'in 3_2, 9_0';
-    procedure popoverController_willRepositionPopoverToRect_inView (popoverController: UIPopoverController; rect: CGRectPtr; view: UIView * __nonnull * __nonnull); message 'popoverController:willRepositionPopoverToRect:inView:'; deprecated 'in 7_0,9_0';
+    procedure popoverController_willRepositionPopoverToRect_inView (popoverController: UIPopoverController; rect: CGRectPtr; view: UIView); message 'popoverController:willRepositionPopoverToRect:inView:'; deprecated 'in 7_0,9_0';
   end;
 {$endif}
 

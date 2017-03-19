@@ -13,6 +13,6 @@ const
   UIDataDetectorTypeFlightNumber = 1 shl 5 { available in 10_0 };
   UIDataDetectorTypeLookupSuggestion = 1 shl 6 { available in 10_0 };
   UIDataDetectorTypeNone = 0;
-  UIDataDetectorTypeAll = NSUIntegerMax;
+  UIDataDetectorTypeAll = ULONG_MAX;
 {$endif}
 

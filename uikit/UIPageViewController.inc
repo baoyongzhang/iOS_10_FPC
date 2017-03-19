@@ -66,9 +66,9 @@ type
     function spineLocation: UIPageViewControllerSpineLocation; message 'spineLocation';
     procedure setDoubleSided(newValue: boolean); message 'setDoubleSided:';
     function isDoubleSided: boolean; message 'isDoubleSided';
-    function gestureRecognizers: __kindof UIGestureRecognizer *ProtocolPtr; message 'gestureRecognizers';
-    function viewControllers: __kindof UIViewController *ProtocolPtr; message 'viewControllers';
-    procedure setViewControllers_direction_animated_completion (viewControllers_: nullable UIViewController *ProtocolPtr; direction: UIPageViewControllerNavigationDirection; animated: boolean; completion: void (^ __nullable)(BOOL finished)); message 'setViewControllers:direction:animated:completion:';
+    function gestureRecognizers: UIGestureRecognizer; message 'gestureRecognizers';
+    function viewControllers: UIViewController; message 'viewControllers';
+    procedure setViewControllers_direction_animated_completion (viewControllers_: UIViewController; direction: UIPageViewControllerNavigationDirection; animated: boolean; completion: void (^ __nullable)(BOOL finished)); message 'setViewControllers:direction:animated:completion:';
   end;
 {$endif}
 
@@ -77,8 +77,8 @@ type
 type
   UIPageViewControllerDelegateProtocol = objcprotocol external name 'UIPageViewControllerDelegate' (NSObjectProtocol)
   optional
-    procedure pageViewController_willTransitionToViewControllers (pageViewController: UIPageViewController; pendingViewControllers: UIViewController *ProtocolPtr); message 'pageViewController:willTransitionToViewControllers:'; { available in 6_0 }
-    procedure pageViewController_didFinishAnimating_previousViewControllers_transitionCompleted (pageViewController: UIPageViewController; finished: boolean; previousViewControllers: UIViewController *ProtocolPtr; completed_: boolean); message 'pageViewController:didFinishAnimating:previousViewControllers:transitionCompleted:';
+    procedure pageViewController_willTransitionToViewControllers (pageViewController: UIPageViewController; pendingViewControllers: UIViewController); message 'pageViewController:willTransitionToViewControllers:'; { available in 6_0 }
+    procedure pageViewController_didFinishAnimating_previousViewControllers_transitionCompleted (pageViewController: UIPageViewController; finished: boolean; previousViewControllers: UIViewController ; completed_: boolean); message 'pageViewController:didFinishAnimating:previousViewControllers:transitionCompleted:';
     function pageViewController_spineLocationForInterfaceOrientation (pageViewController: UIPageViewController; orientation: UIInterfaceOrientation): UIPageViewControllerSpineLocation; message 'pageViewController:spineLocationForInterfaceOrientation:';
     function pageViewControllerSupportedInterfaceOrientations (pageViewController: UIPageViewController): UIInterfaceOrientationMask; message 'pageViewControllerSupportedInterfaceOrientations:'; { available in 7_0 }
     function pageViewControllerPreferredInterfaceOrientationForPresentation (pageViewController: UIPageViewController): UIInterfaceOrientation; message 'pageViewControllerPreferredInterfaceOrientationForPresentation:'; { available in 7_0 }
@@ -87,8 +87,8 @@ type
 type
   UIPageViewControllerDataSourceProtocol = objcprotocol external name 'UIPageViewControllerDataSource' (NSObjectProtocol)
   required
-    function pageViewController_viewControllerBeforeViewController (pageViewController: UIPageViewController; viewController: UIViewController): nullable UIViewControllerPtr; message 'pageViewController:viewControllerBeforeViewController:';
-    function pageViewController_viewControllerAfterViewController (pageViewController: UIPageViewController; viewController: UIViewController): nullable UIViewControllerPtr; message 'pageViewController:viewControllerAfterViewController:';
+    function pageViewController_viewControllerBeforeViewController (pageViewController: UIPageViewController; viewController: UIViewController): UIViewControllerPtr; message 'pageViewController:viewControllerBeforeViewController:';
+    function pageViewController_viewControllerAfterViewController (pageViewController: UIPageViewController; viewController: UIViewController): UIViewControllerPtr; message 'pageViewController:viewControllerAfterViewController:';
   optional
     function presentationCountForPageViewController (pageViewController: UIPageViewController): NSInteger; message 'presentationCountForPageViewController:'; { available in 6_0 }
     function presentationIndexForPageViewController (pageViewController: UIPageViewController): NSInteger; message 'presentationIndexForPageViewController:'; { available in 6_0 }

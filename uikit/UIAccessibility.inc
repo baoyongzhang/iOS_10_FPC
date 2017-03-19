@@ -93,9 +93,9 @@ type
   UIAccessibilityReadingContentProtocol = objcprotocol external name 'UIAccessibilityReadingContent'
   required
     function accessibilityLineNumberForPoint (point: CGPoint): NSInteger; message 'accessibilityLineNumberForPoint:'; { available in 5_0 }
-    function accessibilityContentForLineNumber (lineNumber: NSInteger): nullable NSStringPtr; message 'accessibilityContentForLineNumber:'; { available in 5_0 }
+    function accessibilityContentForLineNumber (lineNumber: NSInteger): NSStringPtr; message 'accessibilityContentForLineNumber:'; { available in 5_0 }
     function accessibilityFrameForLineNumber (lineNumber: NSInteger): CGRect; message 'accessibilityFrameForLineNumber:'; { available in 5_0 }
-    function accessibilityPageContent: nullable NSStringPtr; message 'accessibilityPageContent'; { available in 5_0 }
+    function accessibilityPageContent: NSStringPtr; message 'accessibilityPageContent'; { available in 5_0 }
   end;
 {$endif}
 

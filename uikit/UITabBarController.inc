@@ -41,13 +41,13 @@ type
   optional
     function tabBarController_shouldSelectViewController (tabBarController: UITabBarController; viewController: UIViewController): boolean; message 'tabBarController:shouldSelectViewController:'; { available in 3_0 }
     procedure tabBarController_didSelectViewController (tabBarController: UITabBarController; viewController: UIViewController); message 'tabBarController:didSelectViewController:';
-    procedure tabBarController_willBeginCustomizingViewControllers (tabBarController: UITabBarController; viewControllers: __kindof UIViewController *ProtocolPtr); message 'tabBarController:willBeginCustomizingViewControllers:'; { available in 3_0 }
-    procedure tabBarController_willEndCustomizingViewControllers_changed (tabBarController: UITabBarController; viewControllers: __kindof UIViewController *ProtocolPtr; changed: boolean); message 'tabBarController:willEndCustomizingViewControllers:changed:'; { available in 3_0 }
-    procedure tabBarController_didEndCustomizingViewControllers_changed (tabBarController: UITabBarController; viewControllers: __kindof UIViewController *ProtocolPtr; changed: boolean); message 'tabBarController:didEndCustomizingViewControllers:changed:';
+    procedure tabBarController_willBeginCustomizingViewControllers (tabBarController: UITabBarController; viewControllers: UIViewController); message 'tabBarController:willBeginCustomizingViewControllers:'; { available in 3_0 }
+    procedure tabBarController_willEndCustomizingViewControllers_changed (tabBarController: UITabBarController; viewControllers: UIViewController; changed: boolean); message 'tabBarController:willEndCustomizingViewControllers:changed:'; { available in 3_0 }
+    procedure tabBarController_didEndCustomizingViewControllers_changed (tabBarController: UITabBarController; viewControllers: UIViewController; changed: boolean); message 'tabBarController:didEndCustomizingViewControllers:changed:';
     function tabBarControllerSupportedInterfaceOrientations (tabBarController: UITabBarController): UIInterfaceOrientationMask; message 'tabBarControllerSupportedInterfaceOrientations:'; { available in 7_0 }
     function tabBarControllerPreferredInterfaceOrientationForPresentation (tabBarController: UITabBarController): UIInterfaceOrientation; message 'tabBarControllerPreferredInterfaceOrientationForPresentation:'; { available in 7_0 }
-    function tabBarController_interactionControllerForAnimationController (tabBarController: UITabBarController; animationController: UIViewControllerAnimatedTransitioningProtocol): nullable UIViewControllerInteractiveTransitioningProtocol; message 'tabBarController:interactionControllerForAnimationController:'; { available in 7_0 }
-    function tabBarController_animationControllerForTransitionFromViewController_toViewController (tabBarController: UITabBarController; fromVC: UIViewController; toVC: UIViewController): nullable UIViewControllerAnimatedTransitioningProtocol; message 'tabBarController:animationControllerForTransitionFromViewController:toViewController:'; { available in 7_0 }
+    function tabBarController_interactionControllerForAnimationController (tabBarController: UITabBarController; animationController: UIViewControllerAnimatedTransitioningProtocol): UIViewControllerInteractiveTransitioningProtocol; message 'tabBarController:interactionControllerForAnimationController:'; { available in 7_0 }
+    function tabBarController_animationControllerForTransitionFromViewController_toViewController (tabBarController: UITabBarController; fromVC: UIViewController; toVC: UIViewController): UIViewControllerAnimatedTransitioningProtocol; message 'tabBarController:animationControllerForTransitionFromViewController:toViewController:'; { available in 7_0 }
   end;
 {$endif}
 

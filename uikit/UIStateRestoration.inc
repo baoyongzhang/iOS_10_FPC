@@ -21,13 +21,13 @@ var
 
 type
   UIViewControllerRestorationProtocol = objcprotocol external name 'UIViewControllerRestoration'
-    class function viewControllerWithRestorationIdentifierPath_coder (identifierComponents: NSArray; coder: NSCoder): nullable UIViewControllerPtr; message 'viewControllerWithRestorationIdentifierPath:coder:';
+    class function viewControllerWithRestorationIdentifierPath_coder (identifierComponents: NSArray; coder: NSCoder): UIViewControllerPtr; message 'viewControllerWithRestorationIdentifierPath:coder:';
   end;
 
 type
   UIDataSourceModelAssociationProtocol = objcprotocol external name 'UIDataSourceModelAssociation'
-    function modelIdentifierForElementAtIndexPath_inView (idx: NSIndexPath; view: UIView): nullable NSStringPtr; message 'modelIdentifierForElementAtIndexPath:inView:';
-    function indexPathForElementWithModelIdentifier_inView (identifier: NSString; view: UIView): nullable NSIndexPathPtr; message 'indexPathForElementWithModelIdentifier:inView:';
+    function modelIdentifierForElementAtIndexPath_inView (idx: NSIndexPath; view: UIView): NSStringPtr; message 'modelIdentifierForElementAtIndexPath:inView:';
+    function indexPathForElementWithModelIdentifier_inView (identifier: NSString; view: UIView): NSIndexPathPtr; message 'indexPathForElementWithModelIdentifier:inView:';
   end;
 
 type
@@ -42,7 +42,7 @@ type
 
 type
   UIObjectRestorationProtocol = objcprotocol external name 'UIObjectRestoration'
-    class function objectWithRestorationIdentifierPath_coder (identifierComponents: NSString *ProtocolPtr; coder: NSCoder): nullable UIStateRestoringProtocol; message 'objectWithRestorationIdentifierPath:coder:';
+    class function objectWithRestorationIdentifierPath_coder (identifierComponents: NSString; coder: NSCoder): UIStateRestoringProtocol; message 'objectWithRestorationIdentifierPath:coder:';
   end;
 {$endif}
 

@@ -87,8 +87,8 @@ type
     function completionVelocity: CGFloat; message 'completionVelocity';
     function completionCurve: UIViewAnimationCurve; message 'completionCurve';
     {$endif}
-    function viewControllerForKey (key: UITransitionContextViewControllerKey): nullable __kindof UIViewControllerPtr; message 'viewControllerForKey:';
-    function viewForKey (key: UITransitionContextViewKey): nullable __kindof UIViewPtr; message 'viewForKey:'; { available in 8_0 }
+    function viewControllerForKey (key: UITransitionContextViewControllerKey): UIViewControllerPtr; message 'viewControllerForKey:';
+    function viewForKey (key: UITransitionContextViewKey): UIViewPtr; message 'viewForKey:'; { available in 8_0 }
     {$if defined(UIKIT_DEFINE_AS_PROPERTIES)}
     function containerView: UIView; message 'containerView';
     {$else}
@@ -102,9 +102,11 @@ type
   end;
 
 type
+  UIViewControllerTransitionCoordinatorContextProtocolcontext = OpaqueType;
+  TMethodUIViewControllerTransitionCoordinatorContextProtocolcontext = procedure (u: UIViewControllerTransitionCoordinatorContextProtocolcontext);
   UIViewControllerTransitionCoordinatorProtocol = objcprotocol external name 'UIViewControllerTransitionCoordinator' (UIViewControllerTransitionCoordinatorContextProtocol)
-    function animateAlongsideTransition_completion (animation: void (^ __nullable)(UIViewControllerTransitionCoordinatorContextProtocolcontext); completion: void (^ __nullable)(UIViewControllerTransitionCoordinatorContextProtocolcontext)): boolean; message 'animateAlongsideTransition:completion:';
-    function animateAlongsideTransitionInView_animation_completion (view: nullable UIViewPtr; animation: void (^ __nullable)(UIViewControllerTransitionCoordinatorContextProtocolcontext); completion: void (^ __nullable)(UIViewControllerTransitionCoordinatorContextProtocolcontext)): boolean; message 'animateAlongsideTransitionInView:animation:completion:';
+    function animateAlongsideTransition_completion (animation: TMethodUIViewControllerTransitionCoordinatorContextProtocolcontext; completion: TMethodUIViewControllerTransitionCoordinatorContextProtocolcontext): boolean; message 'animateAlongsideTransition:completion:';
+    function animateAlongsideTransitionInView_animation_completion (view: UIViewPtr; animation: TMethodUIViewControllerTransitionCoordinatorContextProtocolcontext; completion: TMethodUIViewControllerTransitionCoordinatorContextProtocolcontext): boolean; message 'animateAlongsideTransitionInView:animation:completion:';
     procedure notifyWhenInteractionEndsUsingBlock (handler: OpaqueCBlock); message 'notifyWhenInteractionEndsUsingBlock:'; deprecated 'in 7_0, 10_0,"Use notifyWhenInteractionChangesUsingBlock"';
     procedure notifyWhenInteractionChangesUsingBlock (handler: OpaqueCBlock); message 'notifyWhenInteractionChangesUsingBlock:'; { available in 10_0 }
   end;

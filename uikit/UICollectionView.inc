@@ -51,7 +51,7 @@ type
   UICollectionViewDataSourceProtocol = objcprotocol external name 'UICollectionViewDataSource' (NSObjectProtocol)
   required
     function collectionView_numberOfItemsInSection (collectionView: UICollectionView; section: NSInteger): NSInteger; message 'collectionView:numberOfItemsInSection:';
-    function collectionView_cellForItemAtIndexPath (collectionView: UICollectionView; indexPath: NSIndexPath): __kindof UICollectionViewCellPtr; message 'collectionView:cellForItemAtIndexPath:';
+    function collectionView_cellForItemAtIndexPath (collectionView: UICollectionView; indexPath: NSIndexPath): UICollectionViewCellPtr; message 'collectionView:cellForItemAtIndexPath:';
   optional
     function numberOfSectionsInCollectionView (collectionView: UICollectionView): NSInteger; message 'numberOfSectionsInCollectionView:';
     function collectionView_viewForSupplementaryElementOfKind_atIndexPath (collectionView: UICollectionView; kind: NSString; indexPath: NSIndexPath): UICollectionReusableView; message 'collectionView:viewForSupplementaryElementOfKind:atIndexPath:';
@@ -62,9 +62,9 @@ type
 type
   UICollectionViewDataSourcePrefetchingProtocol = objcprotocol external name 'UICollectionViewDataSourcePrefetching' (NSObjectProtocol)
   required
-    procedure collectionView_prefetchItemsAtIndexPaths (collectionView: UICollectionView; indexPaths: NSIndexPath *ProtocolPtr); message 'collectionView:prefetchItemsAtIndexPaths:'; { available in 10_0 }
+    procedure collectionView_prefetchItemsAtIndexPaths (collectionView: UICollectionView; indexPaths: NSIndexPath); message 'collectionView:prefetchItemsAtIndexPaths:'; { available in 10_0 }
   optional
-    procedure collectionView_cancelPrefetchingForItemsAtIndexPaths (collectionView: UICollectionView; indexPaths: NSIndexPath *ProtocolPtr); message 'collectionView:cancelPrefetchingForItemsAtIndexPaths:'; { available in 10_0 }
+    procedure collectionView_cancelPrefetchingForItemsAtIndexPaths (collectionView: UICollectionView; indexPaths: NSIndexPath); message 'collectionView:cancelPrefetchingForItemsAtIndexPaths:'; { available in 10_0 }
   end;
 
 type
@@ -82,13 +82,13 @@ type
     procedure collectionView_didEndDisplayingCell_forItemAtIndexPath (collectionView: UICollectionView; cell: UICollectionViewCell; indexPath: NSIndexPath); message 'collectionView:didEndDisplayingCell:forItemAtIndexPath:';
     procedure collectionView_didEndDisplayingSupplementaryView_forElementOfKind_atIndexPath (collectionView: UICollectionView; view: UICollectionReusableView; elementKind: NSString; indexPath: NSIndexPath); message 'collectionView:didEndDisplayingSupplementaryView:forElementOfKind:atIndexPath:';
     function collectionView_shouldShowMenuForItemAtIndexPath (collectionView: UICollectionView; indexPath: NSIndexPath): boolean; message 'collectionView:shouldShowMenuForItemAtIndexPath:';
-    function collectionView_canPerformAction_forItemAtIndexPath_withSender (collectionView: UICollectionView; action: SEL; indexPath: NSIndexPath; sender: nullable id): boolean; message 'collectionView:canPerformAction:forItemAtIndexPath:withSender:';
-    procedure collectionView_performAction_forItemAtIndexPath_withSender (collectionView: UICollectionView; action: SEL; indexPath: NSIndexPath; sender: nullable id); message 'collectionView:performAction:forItemAtIndexPath:withSender:';
-    function collectionView_transitionLayoutForOldLayout_newLayout (collectionView: UICollectionView; fromLayout: UICollectionViewLayout; toLayout: UICollectionViewLayout): nonnull UICollectionViewTransitionLayoutPtr; message 'collectionView:transitionLayoutForOldLayout:newLayout:';
+    function collectionView_canPerformAction_forItemAtIndexPath_withSender (collectionView: UICollectionView; action: SEL; indexPath: NSIndexPath; sender: id): boolean; message 'collectionView:canPerformAction:forItemAtIndexPath:withSender:';
+    procedure collectionView_performAction_forItemAtIndexPath_withSender (collectionView: UICollectionView; action: SEL; indexPath: NSIndexPath; sender: id); message 'collectionView:performAction:forItemAtIndexPath:withSender:';
+    function collectionView_transitionLayoutForOldLayout_newLayout (collectionView: UICollectionView; fromLayout: UICollectionViewLayout; toLayout: UICollectionViewLayout): UICollectionViewTransitionLayoutPtr; message 'collectionView:transitionLayoutForOldLayout:newLayout:';
     function collectionView_canFocusItemAtIndexPath (collectionView: UICollectionView; indexPath: NSIndexPath): boolean; message 'collectionView:canFocusItemAtIndexPath:'; { available in 9_0 }
     function collectionView_shouldUpdateFocusInContext (collectionView: UICollectionView; context: UICollectionViewFocusUpdateContext): boolean; message 'collectionView:shouldUpdateFocusInContext:'; { available in 9_0 }
     procedure collectionView_didUpdateFocusInContext_withAnimationCoordinator (collectionView: UICollectionView; context: UICollectionViewFocusUpdateContext; coordinator: UIFocusAnimationCoordinator); message 'collectionView:didUpdateFocusInContext:withAnimationCoordinator:'; { available in 9_0 }
-    function indexPathForPreferredFocusedViewInCollectionView (collectionView: UICollectionView): nullable NSIndexPathPtr; message 'indexPathForPreferredFocusedViewInCollectionView:'; { available in 9_0 }
+    function indexPathForPreferredFocusedViewInCollectionView (collectionView: UICollectionView): NSIndexPathPtr; message 'indexPathForPreferredFocusedViewInCollectionView:'; { available in 9_0 }
     function collectionView_targetIndexPathForMoveFromItemAtIndexPath_toProposedIndexPath (collectionView: UICollectionView; originalIndexPath: NSIndexPath; proposedIndexPath: NSIndexPath): NSIndexPath; message 'collectionView:targetIndexPathForMoveFromItemAtIndexPath:toProposedIndexPath:'; { available in 9_0 }
     function collectionView_targetContentOffsetForProposedContentOffset (collectionView: UICollectionView; proposedContentOffset: CGPoint): CGPoint; message 'collectionView:targetContentOffsetForProposedContentOffset:'; { available in 9_0 }
   end;

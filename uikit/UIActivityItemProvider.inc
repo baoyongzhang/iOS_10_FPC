@@ -18,11 +18,11 @@ type
   UIActivityItemSourceProtocol = objcprotocol external name 'UIActivityItemSource' (NSObjectProtocol)
   required
     function activityViewControllerPlaceholderItem (activityViewController: UIActivityViewController): id; message 'activityViewControllerPlaceholderItem:';
-    function activityViewController_itemForActivityType (activityViewController: UIActivityViewController; activityType: UIActivityType): nullable id; message 'activityViewController:itemForActivityType:';
+    function activityViewController_itemForActivityType (activityViewController: UIActivityViewController; activityType: UIActivityType): id; message 'activityViewController:itemForActivityType:';
   optional
-    function activityViewController_subjectForActivityType (activityViewController: UIActivityViewController; activityType: nullable UIActivityType): NSString; message 'activityViewController:subjectForActivityType:';
-    function activityViewController_dataTypeIdentifierForActivityType (activityViewController: UIActivityViewController; activityType: nullable UIActivityType): NSString; message 'activityViewController:dataTypeIdentifierForActivityType:';
-    function activityViewController_thumbnailImageForActivityType_suggestedSize (activityViewController: UIActivityViewController; activityType: nullable UIActivityType; size: CGSize): nullable UIImagePtr; message 'activityViewController:thumbnailImageForActivityType:suggestedSize:';
+    function activityViewController_subjectForActivityType (activityViewController: UIActivityViewController; activityType: UIActivityType): NSString; message 'activityViewController:subjectForActivityType:';
+    function activityViewController_dataTypeIdentifierForActivityType (activityViewController: UIActivityViewController; activityType: UIActivityType): NSString; message 'activityViewController:dataTypeIdentifierForActivityType:';
+    function activityViewController_thumbnailImageForActivityType_suggestedSize (activityViewController: UIActivityViewController; activityType: UIActivityType; size: CGSize): UIImagePtr; message 'activityViewController:thumbnailImageForActivityType:suggestedSize:';
   end;
 {$endif}
 
@@ -42,10 +42,10 @@ type
     {$endif}
 
     { Adopted protocols }
-    function activityViewController_dataTypeIdentifierForActivityType (activityViewController: UIActivityViewController; activityType: nullable UIActivityType): NSString; message 'activityViewController:dataTypeIdentifierForActivityType:';
-    function activityViewController_itemForActivityType (activityViewController: UIActivityViewController; activityType: UIActivityType): nullable id; message 'activityViewController:itemForActivityType:';
-    function activityViewController_subjectForActivityType (activityViewController: UIActivityViewController; activityType: nullable UIActivityType): NSString; message 'activityViewController:subjectForActivityType:';
-    function activityViewController_thumbnailImageForActivityType_suggestedSize (activityViewController: UIActivityViewController; activityType: nullable UIActivityType; size: CGSize): nullable UIImagePtr; message 'activityViewController:thumbnailImageForActivityType:suggestedSize:';
+    function activityViewController_dataTypeIdentifierForActivityType (activityViewController: UIActivityViewController; activityType: UIActivityType): NSString; message 'activityViewController:dataTypeIdentifierForActivityType:';
+    function activityViewController_itemForActivityType (activityViewController: UIActivityViewController; activityType: UIActivityType): id; message 'activityViewController:itemForActivityType:';
+    function activityViewController_subjectForActivityType (activityViewController: UIActivityViewController; activityType: UIActivityType): NSString; message 'activityViewController:subjectForActivityType:';
+    function activityViewController_thumbnailImageForActivityType_suggestedSize (activityViewController: UIActivityViewController; activityType: UIActivityType; size: CGSize): UIImagePtr; message 'activityViewController:thumbnailImageForActivityType:suggestedSize:';
     function activityViewControllerPlaceholderItem (activityViewController: UIActivityViewController): id; message 'activityViewControllerPlaceholderItem:';
   end;
 {$endif}

@@ -115,6 +115,8 @@ const
   NSFoundationVersionNumber10_11_3 = 1256.1;
   NSFoundationVersionNumber10_11_4 = 1258;
   NSFoundationVersionNumber10_11_Max = 1299;
+
+  NSUIntegerMax = ULONG_MAX;
 {$endif}
 
 {$endif}

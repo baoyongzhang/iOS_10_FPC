@@ -60,10 +60,8 @@ const
   UITableViewCellAccessoryNone = 0;
   UITableViewCellAccessoryDisclosureIndicator = 1;
   UITableViewCellAccessoryDetailDisclosureButton = 2;
-  __TVOS_PROHIBITED = 3;
   UITableViewCellAccessoryCheckmark = 4;
   UITableViewCellAccessoryDetailButton = 5 { available in 7_0 };
-  __TVOS_PROHIBITED = 6 { available in 7_0 };
 
 type
   UITableViewCellStateMask = NSUInteger;

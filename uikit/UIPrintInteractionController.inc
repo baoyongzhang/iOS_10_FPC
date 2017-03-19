@@ -16,8 +16,6 @@ type
 
 {$ifdef TYPES}
 type
-  __TVOS_PROHIBITED = void (^UIPrintInteractionCompletionHandler)(UIPrintInteractionController BOOL NSError *__nullable error) { available in 9_0 };
-  __TVOS_PROHIBITEDPtr = ^__TVOS_PROHIBITED { available in 9_0 };
   UIPrinterCutterBehavior = NSInteger;
   UIPrinterCutterBehaviorPtr = ^UIPrinterCutterBehavior;
 
@@ -83,8 +81,8 @@ type
 type
   UIPrintInteractionControllerDelegateProtocol = objcprotocol external name 'UIPrintInteractionControllerDelegate' (NSObjectProtocol)
   optional
-    function printInteractionControllerParentViewController (printInteractionController_: UIPrintInteractionController): UIViewController * _Nullable; message 'printInteractionControllerParentViewController:';
-    function printInteractionController_choosePaper (printInteractionController_: UIPrintInteractionController; paperList: UIPrintPaper *ProtocolPtr): UIPrintPaper; message 'printInteractionController:choosePaper:';
+    function printInteractionControllerParentViewController (printInteractionController_: UIPrintInteractionController): UIViewController; message 'printInteractionControllerParentViewController:';
+    function printInteractionController_choosePaper (printInteractionController_: UIPrintInteractionController; paperList: UIPrintPaper): UIPrintPaper; message 'printInteractionController:choosePaper:';
     procedure printInteractionControllerWillPresentPrinterOptions (printInteractionController_: UIPrintInteractionController); message 'printInteractionControllerWillPresentPrinterOptions:';
     procedure printInteractionControllerDidPresentPrinterOptions (printInteractionController_: UIPrintInteractionController); message 'printInteractionControllerDidPresentPrinterOptions:';
     procedure printInteractionControllerWillDismissPrinterOptions (printInteractionController_: UIPrintInteractionController); message 'printInteractionControllerWillDismissPrinterOptions:';

@@ -9,7 +9,7 @@ type
 {$ifdef PROTOCOLS}
 
 type
-  CAMetalDrawableProtocol = objcprotocol external name 'CAMetalDrawable' (MTLDrawableProtocol)
+  CAMetalDrawableProtocol = objcprotocol external name 'CAMetalDrawable'
     function texture: MTLTextureProtocol; message 'texture';
     function layer: CAMetalLayer; message 'layer';
   end;

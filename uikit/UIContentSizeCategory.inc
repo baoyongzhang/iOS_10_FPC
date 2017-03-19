@@ -1,8 +1,5 @@
 { Parsed from UIKit.framework UIContentSizeCategory.h }
 {$ifdef TYPES}
-type
-  NS_STRING_ENUM = NSString *UIContentSizeCategory { available in 7_0 };
-  NS_STRING_ENUMPtr = ^NS_STRING_ENUM { available in 7_0 };
 {$endif}
 
 {$ifdef EXTERNAL_SYMBOLS}

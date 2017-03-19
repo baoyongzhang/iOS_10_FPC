@@ -46,7 +46,7 @@ type
 type
   UITraitEnvironmentProtocol = objcprotocol external name 'UITraitEnvironment' (NSObjectProtocol)
     function traitCollection: UITraitCollection; message 'traitCollection';
-    procedure traitCollectionDidChange (previousTraitCollection: nullable UITraitCollectionPtr); message 'traitCollectionDidChange:'; { available in 8_0 }
+    procedure traitCollectionDidChange (previousTraitCollection: UITraitCollectionPtr); message 'traitCollectionDidChange:'; { available in 8_0 }
   end;
 {$endif}
 

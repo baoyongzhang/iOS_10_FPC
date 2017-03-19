@@ -10,7 +10,7 @@ const
   UIPopoverArrowDirectionLeft = 1 shl 2;
   UIPopoverArrowDirectionRight = 1 shl 3;
   UIPopoverArrowDirectionAny = UIPopoverArrowDirectionUp + UIPopoverArrowDirectionDown + UIPopoverArrowDirectionLeft + UIPopoverArrowDirectionRight;
-  UIPopoverArrowDirectionUnknown = NSUIntegerMax;
+  UIPopoverArrowDirectionUnknown = ULONG_MAX;
 {$endif}
 
 {$ifdef CLASSES}

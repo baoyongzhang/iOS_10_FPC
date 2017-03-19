@@ -14,11 +14,8 @@ type
 const
   UISearchBarIconSearch = 0;
   UISearchBarIconClear = 1;
-  __TVOS_PROHIBITED = 2;
   UISearchBarIconBookmark = 3;
-  __TVOS_PROHIBITED = 4;
   UISearchBarIconResultsList = 5;
-  __TVOS_PROHIBITED = 6;
 
 type
   UISearchBarStyle = NSUInteger;

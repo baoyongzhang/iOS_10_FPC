@@ -118,9 +118,9 @@ type
 type
   NSKeyedArchiverDelegateProtocol = objcprotocol external name 'NSKeyedArchiverDelegate' (NSObjectProtocol)
   optional
-    function archiver_willEncodeObject (archiver: NSKeyedArchiver; object_: id): nullable id; message 'archiver:willEncodeObject:';
-    procedure archiver_didEncodeObject (archiver: NSKeyedArchiver; object_: nullable id); message 'archiver:didEncodeObject:';
-    procedure archiver_willReplaceObject_withObject (archiver: NSKeyedArchiver; object_: nullable id; newObject: nullable id); message 'archiver:willReplaceObject:withObject:';
+    function archiver_willEncodeObject (archiver: NSKeyedArchiver; object_: id): id; message 'archiver:willEncodeObject:';
+    procedure archiver_didEncodeObject (archiver: NSKeyedArchiver; object_: id); message 'archiver:didEncodeObject:';
+    procedure archiver_willReplaceObject_withObject (archiver: NSKeyedArchiver; object_: id; newObject: id); message 'archiver:willReplaceObject:withObject:';
     procedure archiverWillFinish (archiver: NSKeyedArchiver); message 'archiverWillFinish:';
     procedure archiverDidFinish (archiver: NSKeyedArchiver); message 'archiverDidFinish:';
   end;
@@ -128,8 +128,8 @@ type
 type
   NSKeyedUnarchiverDelegateProtocol = objcprotocol external name 'NSKeyedUnarchiverDelegate' (NSObjectProtocol)
   optional
-    function unarchiver_cannotDecodeObjectOfClassName_originalClasses (unarchiver: NSKeyedUnarchiver; name: NSString; classNames: NSString *ProtocolPtr): nullable Class; message 'unarchiver:cannotDecodeObjectOfClassName:originalClasses:';
-    function unarchiver_didDecodeObject (unarchiver: NSKeyedUnarchiver; object_: nullable id): nullable id; message 'unarchiver:didDecodeObject:';
+    function unarchiver_cannotDecodeObjectOfClassName_originalClasses (unarchiver: NSKeyedUnarchiver; name: NSString; classNames: NSString): OpaqueType; message 'unarchiver:cannotDecodeObjectOfClassName:originalClasses:';
+    function unarchiver_didDecodeObject (unarchiver: NSKeyedUnarchiver; object_: id): id; message 'unarchiver:didDecodeObject:';
     procedure unarchiver_willReplaceObject_withObject (unarchiver: NSKeyedUnarchiver; object_: id; newObject: id); message 'unarchiver:willReplaceObject:withObject:';
     procedure unarchiverWillFinish (unarchiver: NSKeyedUnarchiver); message 'unarchiverWillFinish:';
     procedure unarchiverDidFinish (unarchiver: NSKeyedUnarchiver); message 'unarchiverDidFinish:';
@@ -141,7 +141,7 @@ type
 type
   NSKeyedArchiverObjectSubstitution = objccategory external (NSObject)
     function classForKeyedArchiver: pobjc_class; message 'classForKeyedArchiver';
-    function replacementObjectForKeyedArchiver (archiver: NSKeyedArchiver): nullable id; message 'replacementObjectForKeyedArchiver:';
+    function replacementObjectForKeyedArchiver (archiver: NSKeyedArchiver): id; message 'replacementObjectForKeyedArchiver:';
     class function classFallbacksForKeyedArchiver: NSString *ProtocolPtr; message 'classFallbacksForKeyedArchiver';
   end;
 

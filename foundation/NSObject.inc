@@ -25,18 +25,18 @@ type
 
 type
   NSCopyingProtocol = objcprotocol external name 'NSCopying'
-    function copyWithZone (zone: nullable NSZonePtr): id; message 'copyWithZone:';
+    function copyWithZone (zone: NSZonePtr): id; message 'copyWithZone:';
   end;
 
 type
   NSMutableCopyingProtocol = objcprotocol external name 'NSMutableCopying'
-    function mutableCopyWithZone (zone: nullable NSZonePtr): id; message 'mutableCopyWithZone:';
+    function mutableCopyWithZone (zone: NSZonePtr): id; message 'mutableCopyWithZone:';
   end;
 
 type
   NSCodingProtocol = objcprotocol external name 'NSCoding'
     procedure encodeWithCoder (aCoder: NSCoder); message 'encodeWithCoder:';
-    function initWithCoder (aDecoder: NSCoder): nullable instancetype; message 'initWithCoder:';
+    function initWithCoder (aDecoder: NSCoder): instancetype; message 'initWithCoder:';
   end;
 
 type

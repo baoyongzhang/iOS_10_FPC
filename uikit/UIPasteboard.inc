@@ -3,12 +3,6 @@
 { Types from UIPasteboard }
 {$ifdef TYPES}
 
-
-
-type
-  NS_EXTENSIBLE_STRING_ENUM = NSString *UIPasteboardOption { available in 10_0 };
-type
-  NS_EXTENSIBLE_STRING_ENUMPtr = ^NS_EXTENSIBLE_STRING_ENUM { available in 10_0 };
 {$endif}
 
 

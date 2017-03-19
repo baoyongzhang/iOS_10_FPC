@@ -22,7 +22,7 @@ type
 
 type
   NSFastEnumerationProtocol = objcprotocol external name 'NSFastEnumeration'
-    function countByEnumeratingWithState_objects_count (state: NSFastEnumerationStatePtr; buffer: id  _Nullable; len: NSUInteger): NSUInteger; message 'countByEnumeratingWithState:objects:count:';
+    function countByEnumeratingWithState_objects_count (state: NSFastEnumerationStatePtr; buffer: id; len: NSUInteger): NSUInteger; message 'countByEnumeratingWithState:objects:count:';
   end;
 {$endif}
 

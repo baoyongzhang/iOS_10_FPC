@@ -96,7 +96,7 @@ type
   UIDictationPhrase = objcclass external (NSObject)
   private
     _text: NSString;
-    _alternativeInterpretations: NSArray *__nullable;
+    _alternativeInterpretations: NSArray;
   public
     function text: NSString; message 'text';
     function alternativeInterpretations: NSString *ProtocolPtr; message 'alternativeInterpretations';
@@ -119,44 +119,44 @@ type
 type
   UITextInputProtocol = objcprotocol external name 'UITextInput' (UIKeyInputProtocol)
   required
-    function textInRange (range: UITextRange): nullable NSStringPtr; message 'textInRange:';
+    function textInRange (range: UITextRange): NSStringPtr; message 'textInRange:';
     procedure replaceRange_withText (range: UITextRange; text: NSString); message 'replaceRange:withText:';
     procedure setSelectedTextRange(newValue: UITextRange); message 'setSelectedTextRange:';
     function selectedTextRange: UITextRange; message 'selectedTextRange';
     function markedTextRange: UITextRange; message 'markedTextRange';
     procedure setMarkedTextStyle(newValue: NSDictionary); message 'setMarkedTextStyle:';
     function markedTextStyle: NSDictionary; message 'markedTextStyle';
-    procedure setMarkedText_selectedRange (markedText: nullable NSStringPtr; selectedRange: NSRange); message 'setMarkedText:selectedRange:';
+    procedure setMarkedText_selectedRange (markedText: NSStringPtr; selectedRange: NSRange); message 'setMarkedText:selectedRange:';
     procedure unmarkText; message 'unmarkText';
     function beginningOfDocument: UITextPosition; message 'beginningOfDocument';
     function endOfDocument: UITextPosition; message 'endOfDocument';
-    function textRangeFromPosition_toPosition (fromPosition: UITextPosition; toPosition: UITextPosition): nullable UITextRangePtr; message 'textRangeFromPosition:toPosition:';
-    function positionFromPosition_offset (position: UITextPosition; offset: NSInteger): nullable UITextPositionPtr; message 'positionFromPosition:offset:';
-    function positionFromPosition_inDirection_offset (position: UITextPosition; direction: UITextLayoutDirection; offset: NSInteger): nullable UITextPositionPtr; message 'positionFromPosition:inDirection:offset:';
+    function textRangeFromPosition_toPosition (fromPosition: UITextPosition; toPosition: UITextPosition): UITextRangePtr; message 'textRangeFromPosition:toPosition:';
+    function positionFromPosition_offset (position: UITextPosition; offset: NSInteger): UITextPositionPtr; message 'positionFromPosition:offset:';
+    function positionFromPosition_inDirection_offset (position: UITextPosition; direction: UITextLayoutDirection; offset: NSInteger): UITextPositionPtr; message 'positionFromPosition:inDirection:offset:';
     function comparePosition_toPosition (position: UITextPosition; other: UITextPosition): NSComparisonResult; message 'comparePosition:toPosition:';
     function offsetFromPosition_toPosition (from: UITextPosition; toPosition: UITextPosition): NSInteger; message 'offsetFromPosition:toPosition:';
     procedure setInputDelegate(newValue: UITextInputDelegateProtocol); message 'setInputDelegate:';
     function inputDelegate: UITextInputDelegateProtocol; message 'inputDelegate';
     function tokenizer: UITextInputTokenizerProtocol; message 'tokenizer';
-    function positionWithinRange_farthestInDirection (range: UITextRange; direction: UITextLayoutDirection): nullable UITextPositionPtr; message 'positionWithinRange:farthestInDirection:';
-    function characterRangeByExtendingPosition_inDirection (position: UITextPosition; direction: UITextLayoutDirection): nullable UITextRangePtr; message 'characterRangeByExtendingPosition:inDirection:';
+    function positionWithinRange_farthestInDirection (range: UITextRange; direction: UITextLayoutDirection): UITextPositionPtr; message 'positionWithinRange:farthestInDirection:';
+    function characterRangeByExtendingPosition_inDirection (position: UITextPosition; direction: UITextLayoutDirection): UITextRangePtr; message 'characterRangeByExtendingPosition:inDirection:';
     function baseWritingDirectionForPosition_inDirection (position: UITextPosition; direction: UITextStorageDirection): UITextWritingDirection; message 'baseWritingDirectionForPosition:inDirection:';
     procedure setBaseWritingDirection_forRange (writingDirection: UITextWritingDirection; range: UITextRange); message 'setBaseWritingDirection:forRange:';
     function firstRectForRange (range: UITextRange): CGRect; message 'firstRectForRange:';
     function caretRectForPosition (position: UITextPosition): CGRect; message 'caretRectForPosition:';
     function selectionRectsForRange (range: UITextRange): NSArray; message 'selectionRectsForRange:'; { available in 6_0 }
-    function closestPositionToPoint (point: CGPoint): nullable UITextPositionPtr; message 'closestPositionToPoint:';
-    function closestPositionToPoint_withinRange (point: CGPoint; range: UITextRange): nullable UITextPositionPtr; message 'closestPositionToPoint:withinRange:';
-    function characterRangeAtPoint (point: CGPoint): nullable UITextRangePtr; message 'characterRangeAtPoint:';
+    function closestPositionToPoint (point: CGPoint): UITextPositionPtr; message 'closestPositionToPoint:';
+    function closestPositionToPoint_withinRange (point: CGPoint; range: UITextRange): UITextPositionPtr; message 'closestPositionToPoint:withinRange:';
+    function characterRangeAtPoint (point: CGPoint): UITextRangePtr; message 'characterRangeAtPoint:';
   optional
     function shouldChangeTextInRange_replacementText (range: UITextRange; text: NSString): boolean; message 'shouldChangeTextInRange:replacementText:'; { available in 6_0 }
-    function textStylingAtPosition_inDirection (position: UITextPosition; direction: UITextStorageDirection): nullable NSDictionaryPtr; message 'textStylingAtPosition:inDirection:';
-    function positionWithinRange_atCharacterOffset (range: UITextRange; offset: NSInteger): nullable UITextPositionPtr; message 'positionWithinRange:atCharacterOffset:';
+    function textStylingAtPosition_inDirection (position: UITextPosition; direction: UITextStorageDirection): NSDictionaryPtr; message 'textStylingAtPosition:inDirection:';
+    function positionWithinRange_atCharacterOffset (range: UITextRange; offset: NSInteger): UITextPositionPtr; message 'positionWithinRange:atCharacterOffset:';
     function characterOffsetOfPosition_withinRange (position: UITextPosition; range: UITextRange): NSInteger; message 'characterOffsetOfPosition:withinRange:';
-    function textInputView: __kindof UIViewPtr; message 'textInputView';
+    function textInputView: UIViewPtr; message 'textInputView';
     procedure setSelectionAffinity(newValue: UITextStorageDirection); message 'setSelectionAffinity:';
     function selectionAffinity: UITextStorageDirection; message 'selectionAffinity';
-    procedure insertDictationResult (dictationResult: UIDictationPhrase *ProtocolPtr); message 'insertDictationResult:';
+    procedure insertDictationResult (dictationResult: UIDictationPhrase); message 'insertDictationResult:';
     procedure dictationRecordingDidEnd; message 'dictationRecordingDidEnd';
     procedure dictationRecognitionFailed; message 'dictationRecognitionFailed';
     {$if defined(UIKIT_DEFINE_AS_PROPERTIES)}
@@ -208,18 +208,18 @@ type
 
 type
   UITextInputDelegateProtocol = objcprotocol external name 'UITextInputDelegate' (NSObjectProtocol)
-    procedure selectionWillChange (textInput: nullable UITextInputProtocol); message 'selectionWillChange:';
-    procedure selectionDidChange (textInput: nullable UITextInputProtocol); message 'selectionDidChange:';
-    procedure textWillChange (textInput: nullable UITextInputProtocol); message 'textWillChange:';
-    procedure textDidChange (textInput: nullable UITextInputProtocol); message 'textDidChange:';
+    procedure selectionWillChange (textInput: UITextInputProtocol); message 'selectionWillChange:';
+    procedure selectionDidChange (textInput: UITextInputProtocol); message 'selectionDidChange:';
+    procedure textWillChange (textInput: UITextInputProtocol); message 'textWillChange:';
+    procedure textDidChange (textInput: UITextInputProtocol); message 'textDidChange:';
   end;
 
 type
   UITextInputTokenizerProtocol = objcprotocol external name 'UITextInputTokenizer' (NSObjectProtocol)
   required
-    function rangeEnclosingPosition_withGranularity_inDirection (position: UITextPosition; granularity: UITextGranularity; direction: UITextDirection): nullable UITextRangePtr; message 'rangeEnclosingPosition:withGranularity:inDirection:';
+    function rangeEnclosingPosition_withGranularity_inDirection (position: UITextPosition; granularity: UITextGranularity; direction: UITextDirection):  UITextRangePtr; message 'rangeEnclosingPosition:withGranularity:inDirection:';
     function isPosition_atBoundary_inDirection (position: UITextPosition; granularity: UITextGranularity; direction: UITextDirection): boolean; message 'isPosition:atBoundary:inDirection:';
-    function positionFromPosition_toBoundary_inDirection (position: UITextPosition; granularity: UITextGranularity; direction: UITextDirection): nullable UITextPositionPtr; message 'positionFromPosition:toBoundary:inDirection:';
+    function positionFromPosition_toBoundary_inDirection (position: UITextPosition; granularity: UITextGranularity; direction: UITextDirection):  UITextPositionPtr; message 'positionFromPosition:toBoundary:inDirection:';
     function isPosition_withinTextUnit_inDirection (position: UITextPosition; granularity: UITextGranularity; direction: UITextDirection): boolean; message 'isPosition:withinTextUnit:inDirection:';
   end;
 {$endif}
@@ -234,15 +234,15 @@ type
     { Adopted protocols }
     function isPosition_atBoundary_inDirection (position: UITextPosition; granularity: UITextGranularity; direction: UITextDirection): boolean; message 'isPosition:atBoundary:inDirection:';
     function isPosition_withinTextUnit_inDirection (position: UITextPosition; granularity: UITextGranularity; direction: UITextDirection): boolean; message 'isPosition:withinTextUnit:inDirection:';
-    function positionFromPosition_toBoundary_inDirection (position: UITextPosition; granularity: UITextGranularity; direction: UITextDirection): nullable UITextPositionPtr; message 'positionFromPosition:toBoundary:inDirection:';
-    function rangeEnclosingPosition_withGranularity_inDirection (position: UITextPosition; granularity: UITextGranularity; direction: UITextDirection): nullable UITextRangePtr; message 'rangeEnclosingPosition:withGranularity:inDirection:';
+    function positionFromPosition_toBoundary_inDirection (position: UITextPosition; granularity: UITextGranularity; direction: UITextDirection):  UITextPositionPtr; message 'positionFromPosition:toBoundary:inDirection:';
+    function rangeEnclosingPosition_withGranularity_inDirection (position: UITextPosition; granularity: UITextGranularity; direction: UITextDirection):  UITextRangePtr; message 'rangeEnclosingPosition:withGranularity:inDirection:';
   end;
 
 type
   UITextInputMode = objcclass external (NSObject, NSSecureCodingProtocol)
   public
     function primaryLanguage: NSString; message 'primaryLanguage';
-    class function currentInputMode                              __TVOS_PROHIBITED: nullable UITextInputModePtr; message 'currentInputMode                              __TVOS_PROHIBITED'; deprecated 'in 4_2, 7_0';
+    class function currentInputMode                              __TVOS_PROHIBITED:  UITextInputModePtr; message 'currentInputMode                              __TVOS_PROHIBITED'; deprecated 'in 4_2, 7_0';
     {$if defined(UIKIT_DEFINE_AS_PROPERTIES)}
     function activeInputModes: UITextInputMode *ProtocolPtr; message 'activeInputModes';
     {$else}
@@ -251,7 +251,7 @@ type
 
     { Adopted protocols }
     procedure encodeWithCoder (aCoder: NSCoder); message 'encodeWithCoder:';
-    function initWithCoder (aDecoder: NSCoder): nullable instancetype; message 'initWithCoder:';
+    function initWithCoder (aDecoder: NSCoder):  instancetype; message 'initWithCoder:';
     function supportsSecureCoding: boolean; message 'supportsSecureCoding';
   end;
 {$endif}

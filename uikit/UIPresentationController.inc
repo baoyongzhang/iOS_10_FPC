@@ -20,8 +20,8 @@ type
   optional
     function adaptivePresentationStyleForPresentationController (controller: UIPresentationController): UIModalPresentationStyle; message 'adaptivePresentationStyleForPresentationController:';
     function adaptivePresentationStyleForPresentationController_traitCollection (controller: UIPresentationController; traitCollection: UITraitCollection): UIModalPresentationStyle; message 'adaptivePresentationStyleForPresentationController:traitCollection:'; { available in 8_3 }
-    function presentationController_viewControllerForAdaptivePresentationStyle (controller: UIPresentationController; style: UIModalPresentationStyle): nullable UIViewControllerPtr; message 'presentationController:viewControllerForAdaptivePresentationStyle:';
-    procedure presentationController_willPresentWithAdaptiveStyle_transitionCoordinator (presentationController: UIPresentationController; style: UIModalPresentationStyle; transitionCoordinator: nullable UIViewControllerTransitionCoordinatorProtocol); message 'presentationController:willPresentWithAdaptiveStyle:transitionCoordinator:'; { available in 8_3 }
+    function presentationController_viewControllerForAdaptivePresentationStyle (controller: UIPresentationController; style: UIModalPresentationStyle): UIViewControllerPtr; message 'presentationController:viewControllerForAdaptivePresentationStyle:';
+    procedure presentationController_willPresentWithAdaptiveStyle_transitionCoordinator (presentationController: UIPresentationController; style: UIModalPresentationStyle; transitionCoordinator: UIViewControllerTransitionCoordinatorProtocol); message 'presentationController:willPresentWithAdaptiveStyle:transitionCoordinator:'; { available in 8_3 }
   end;
 {$endif}
 
@@ -36,7 +36,7 @@ type
     function containerView: UIView; message 'containerView';
     procedure setDelegate(newValue: UIAdaptivePresentationControllerDelegateProtocol); message 'setDelegate:';
     function delegate: UIAdaptivePresentationControllerDelegateProtocol; message 'delegate';
-    function initWithPresentedViewController_presentingViewController (presentedViewController_: UIViewController; presentingViewController_: nullable UIViewControllerPtr): instancetype; message 'initWithPresentedViewController:presentingViewController:'; { NS_DESIGNATED_INITIALIZER }
+    function initWithPresentedViewController_presentingViewController (presentedViewController_: UIViewController; presentingViewController_: UIViewControllerPtr): instancetype; message 'initWithPresentedViewController:presentingViewController:'; { NS_DESIGNATED_INITIALIZER }
     function init: instancetype; message 'init';
     {$if defined(UIKIT_DEFINE_AS_PROPERTIES)}
     function adaptivePresentationStyle: UIModalPresentationStyle; message 'adaptivePresentationStyle';
@@ -52,7 +52,7 @@ type
     function shouldPresentInFullscreen: boolean; message 'shouldPresentInFullscreen';
     function shouldRemovePresentersView: boolean; message 'shouldRemovePresentersView';
     {$else}
-    function presentedView: nullable UIViewPtr; message 'presentedView';
+    function presentedView:  UIViewPtr; message 'presentedView';
     function frameOfPresentedViewInContainerView: CGRect; message 'frameOfPresentedViewInContainerView';
     function shouldPresentInFullscreen: boolean; message 'shouldPresentInFullscreen';
     function shouldRemovePresentersView: boolean; message 'shouldRemovePresentersView';
@@ -75,7 +75,7 @@ type
     function sizeForChildContentContainer_withParentContainerSize (container: UIContentContainerProtocol; parentSize: CGSize): CGSize; message 'sizeForChildContentContainer:withParentContainerSize:'; { available in 8_0 }
     procedure systemLayoutFittingSizeDidChangeForChildContentContainer (container: UIContentContainerProtocol); message 'systemLayoutFittingSizeDidChangeForChildContentContainer:'; { available in 8_0 }
     function traitCollection: UITraitCollection; message 'traitCollection';
-    procedure traitCollectionDidChange (previousTraitCollection: nullable UITraitCollectionPtr); message 'traitCollectionDidChange:'; { available in 8_0 }
+    procedure traitCollectionDidChange (previousTraitCollection: UITraitCollectionPtr); message 'traitCollectionDidChange:'; { available in 8_0 }
     procedure updateFocusIfNeeded; message 'updateFocusIfNeeded';
     procedure viewWillTransitionToSize_withTransitionCoordinator (size: CGSize; coordinator: UIViewControllerTransitionCoordinatorProtocol); message 'viewWillTransitionToSize:withTransitionCoordinator:'; { available in 8_0 }
     procedure willTransitionToTraitCollection_withTransitionCoordinator (newCollection: UITraitCollection; coordinator: UIViewControllerTransitionCoordinatorProtocol); message 'willTransitionToTraitCollection:withTransitionCoordinator:'; { available in 8_0 }

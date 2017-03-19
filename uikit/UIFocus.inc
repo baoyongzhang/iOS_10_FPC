@@ -11,6 +11,7 @@ type
   UIFocusUpdateContextPtr = ^UIFocusUpdateContext;
   UIFocusEnvironmentProtocolPtr = ^UIFocusEnvironmentProtocol;
   UIFocusItemProtocolPtr = ^UIFocusItemProtocol;
+  UIFocusEnvironmentProtocolProtocolPtr = OpaqueType;
 {$endif}
 
 {$ifdef TYPES}

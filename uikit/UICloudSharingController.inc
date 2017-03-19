@@ -24,10 +24,10 @@ const
 type
   UICloudSharingControllerDelegateProtocol = objcprotocol external name 'UICloudSharingControllerDelegate' (NSObjectProtocol)
     procedure cloudSharingController_failedToSaveShareWithError (csc: UICloudSharingController; error: NSError); message 'cloudSharingController:failedToSaveShareWithError:';
-    function itemTitleForCloudSharingController (csc: UICloudSharingController): nullable NSStringPtr; message 'itemTitleForCloudSharingController:';
+    function itemTitleForCloudSharingController (csc: UICloudSharingController): NSStringPtr; message 'itemTitleForCloudSharingController:';
   optional
-    function itemThumbnailDataForCloudSharingController (csc: UICloudSharingController): nullable NSDataPtr; message 'itemThumbnailDataForCloudSharingController:';
-    function itemTypeForCloudSharingController (csc: UICloudSharingController): nullable NSStringPtr; message 'itemTypeForCloudSharingController:';
+    function itemThumbnailDataForCloudSharingController (csc: UICloudSharingController): NSDataPtr; message 'itemThumbnailDataForCloudSharingController:';
+    function itemTypeForCloudSharingController (csc: UICloudSharingController): NSStringPtr; message 'itemTypeForCloudSharingController:';
     procedure cloudSharingControllerDidSaveShare (csc: UICloudSharingController); message 'cloudSharingControllerDidSaveShare:';
     procedure cloudSharingControllerDidStopSharing (csc: UICloudSharingController); message 'cloudSharingControllerDidStopSharing:';
   end;
@@ -38,8 +38,8 @@ type
 type
   UICloudSharingController = objcclass external (UIViewController)
   public
-    function initWithNibName_bundle (nibNameOrNil: nullable NSStringPtr; nibBundleOrNil: nullable NSBundlePtr): instancetype; message 'initWithNibName:bundle:';
-    function initWithCoder (aDecoder: NSCoder): nullable instancetype; message 'initWithCoder:';
+    function initWithNibName_bundle (nibNameOrNil: NSStringPtr; nibBundleOrNil: NSBundlePtr): instancetype; message 'initWithNibName:bundle:';
+    function initWithCoder (aDecoder: NSCoder): instancetype; message 'initWithCoder:';
     function initWithPreparationHandler (preparationHandler: OpaqueCBlock): instancetype; message 'initWithPreparationHandler:';
     function initWithShare_container (share: CKShare; container: CKContainer): instancetype; message 'initWithShare:container:';
     procedure setDelegate(newValue: UICloudSharingControllerDelegateProtocol); message 'setDelegate:';

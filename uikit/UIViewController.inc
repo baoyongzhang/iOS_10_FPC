@@ -42,7 +42,6 @@
 {$ifdef TYPES}
 type
   UIViewControllerPtr = ^UIViewController;
-  UIViewControllerPtr = ^UIViewController;
   UIPreviewActionPtr = ^UIPreviewAction;
   UIPreviewActionGroupPtr = ^UIPreviewActionGroup;
   UIContentContainerProtocolPtr = ^UIContentContainerProtocol;
@@ -59,10 +58,8 @@ type
 const
   UIModalTransitionStyleCoverVertical = 0;
   UIModalTransitionStyleFlipHorizontal = 1;
-  __TVOS_PROHIBITED = 2;
   UIModalTransitionStyleCrossDissolve = 3;
   UIModalTransitionStylePartialCurl = 4 { available in 3_2 };
-  __TVOS_PROHIBITED = 5 { available in 3_2 };
 
 type
   UIModalPresentationStyle = NSInteger;
@@ -71,15 +68,12 @@ type
 const
   UIModalPresentationFullScreen = 0;
   UIModalPresentationPageSheet = 1 { available in 3_2 };
-  __TVOS_PROHIBITED = 2 { available in 3_2 };
   UIModalPresentationFormSheet = 3 { available in 3_2 };
-  __TVOS_PROHIBITED = 4 { available in 3_2 };
   UIModalPresentationCurrentContext = 5 { available in 3_2 };
   UIModalPresentationCustom = 6 { available in 7_0 };
   UIModalPresentationOverFullScreen = 7 { available in 8_0 };
   UIModalPresentationOverCurrentContext = 8 { available in 8_0 };
   UIModalPresentationPopover = 9 { available in 8_0 };
-  __TVOS_PROHIBITED = 10 { available in 8_0 };
   UIModalPresentationNone = -1 { available in 7_0 };
 {$endif}
 
@@ -361,7 +355,7 @@ type
 
 type
   UIViewControllerPreviewingDelegateProtocol = objcprotocol external name 'UIViewControllerPreviewingDelegate' (NSObjectProtocol)
-    function previewingContext_viewControllerForLocation (previewingContext: UIViewControllerPreviewingProtocol; location: CGPoint): nullable UIViewControllerPtr; message 'previewingContext:viewControllerForLocation:'; { available in 9_0 }
+    function previewingContext_viewControllerForLocation (previewingContext: UIViewControllerPreviewingProtocol; location: CGPoint): UIViewControllerPtr; message 'previewingContext:viewControllerForLocation:'; { available in 9_0 }
     procedure previewingContext_commitViewController (previewingContext: UIViewControllerPreviewingProtocol; viewControllerToCommit: UIViewController); message 'previewingContext:commitViewController:'; { available in 9_0 }
   end;
 {$endif}

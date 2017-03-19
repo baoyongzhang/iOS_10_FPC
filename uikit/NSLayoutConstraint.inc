@@ -37,7 +37,6 @@ const
   Use = 14;
   lastBaseline = 15;
   instead = 16;
-  NSLayoutAttributeLastBaseline = 17;
   NSLayoutAttributeFirstBaseline = 18 { available in 8_0 };
   NSLayoutAttributeLeftMargin = 19 { available in 8_0 };
   NSLayoutAttributeRightMargin = 20 { available in 8_0 };
@@ -64,11 +63,7 @@ const
   NSLayoutFormatAlignAllCenterY = 1 shl NSLayoutAttributeCenterY;
   NSLayoutFormatAlignAllLastBaseline = 1 shl NSLayoutAttributeLastBaseline;
   NSLayoutFormatAlignAllBaseline = 0;
-  NS_SWIFT_UNAVAILABLE = 1;
-  Use = 2;
   alignAllLastBaseline = 3;
-  instead = 4;
-  NSLayoutFormatAlignAllLastBaseline = 5;
   NSLayoutFormatAlignAllFirstBaseline = 1 shl NSLayoutAttributeFirstBaseline { available in 8_0 };
   NSLayoutFormatAlignmentMask = $FFFF;
   NSLayoutFormatDirectionLeadingToTrailing = 0 shl 16;

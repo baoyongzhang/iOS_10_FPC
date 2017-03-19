@@ -47,7 +47,7 @@ type
     procedure searchDisplayController_didShowSearchResultsTableView (controller: UISearchDisplayController; tableView: UITableView); message 'searchDisplayController:didShowSearchResultsTableView:'; deprecated 'in 3_0,8_0';
     procedure searchDisplayController_willHideSearchResultsTableView (controller: UISearchDisplayController; tableView: UITableView); message 'searchDisplayController:willHideSearchResultsTableView:'; deprecated 'in 3_0,8_0';
     procedure searchDisplayController_didHideSearchResultsTableView (controller: UISearchDisplayController; tableView: UITableView); message 'searchDisplayController:didHideSearchResultsTableView:'; deprecated 'in 3_0,8_0';
-    function searchDisplayController_shouldReloadTableForSearchString (controller: UISearchDisplayController; searchString: nullable NSStringPtr): boolean; message 'searchDisplayController:shouldReloadTableForSearchString:'; deprecated 'in 3_0,8_0';
+    function searchDisplayController_shouldReloadTableForSearchString (controller: UISearchDisplayController; searchString: NSStringPtr): boolean; message 'searchDisplayController:shouldReloadTableForSearchString:'; deprecated 'in 3_0,8_0';
     function searchDisplayController_shouldReloadTableForSearchScope (controller: UISearchDisplayController; searchOption: NSInteger): boolean; message 'searchDisplayController:shouldReloadTableForSearchScope:'; deprecated 'in 3_0,8_0';
   end;
 {$endif}

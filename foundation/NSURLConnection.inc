@@ -45,12 +45,12 @@ type
 type
   NSURLConnectionDataDelegateProtocol = objcprotocol external name 'NSURLConnectionDataDelegate' (NSURLConnectionDelegateProtocol)
   optional
-    function connection_willSendRequest_redirectResponse (connection: NSURLConnection; request: NSURLRequest; response: nullable NSURLResponsePtr): nullable NSURLRequestPtr; message 'connection:willSendRequest:redirectResponse:';
+    function connection_willSendRequest_redirectResponse (connection: NSURLConnection; request: NSURLRequest; response: NSURLResponsePtr): NSURLRequestPtr; message 'connection:willSendRequest:redirectResponse:';
     procedure connection_didReceiveResponse (connection: NSURLConnection; response: NSURLResponse); message 'connection:didReceiveResponse:';
     procedure connection_didReceiveData (connection: NSURLConnection; data: NSData); message 'connection:didReceiveData:';
-    function connection_needNewBodyStream (connection: NSURLConnection; request: NSURLRequest): nullable NSInputStreamPtr; message 'connection:needNewBodyStream:';
+    function connection_needNewBodyStream (connection: NSURLConnection; request: NSURLRequest): NSInputStreamPtr; message 'connection:needNewBodyStream:';
     procedure connection_didSendBodyData_totalBytesWritten_totalBytesExpectedToWrite (connection: NSURLConnection; bytesWritten: NSInteger; totalBytesWritten: NSInteger; totalBytesExpectedToWrite: NSInteger); message 'connection:didSendBodyData:totalBytesWritten:totalBytesExpectedToWrite:';
-    function connection_willCacheResponse (connection: NSURLConnection; cachedResponse: NSCachedURLResponse): nullable NSCachedURLResponsePtr; message 'connection:willCacheResponse:';
+    function connection_willCacheResponse (connection: NSURLConnection; cachedResponse: NSCachedURLResponse): NSCachedURLResponsePtr; message 'connection:willCacheResponse:';
     procedure connectionDidFinishLoading (connection: NSURLConnection); message 'connectionDidFinishLoading:';
   end;
 
@@ -68,7 +68,7 @@ type
 
 type
   NSURLConnectionSynchronousLoading = objccategory external (NSURLConnection)
-    class function sendSynchronousRequest_returningResponse_error (request: NSURLRequest; response: NSURLResponse * _Nullable * _Nullable; error: NSErrorPtr): nullable NSDataPtr; message 'sendSynchronousRequest:returningResponse:error:'; deprecated 'in 10_3, 10_11, 2_0, 9_0, "Use [NSURLSession dataTaskWithRequest:completionHandler:] (see NSURLSession.h"';
+    class function sendSynchronousRequest_returningResponse_error (request: NSURLRequest; response: NSURLResponse; error: NSErrorPtr):  NSDataPtr; message 'sendSynchronousRequest:returningResponse:error:'; deprecated 'in 10_3, 10_11, 2_0, 9_0, "Use [NSURLSession dataTaskWithRequest:completionHandler:] (see NSURLSession.h"';
   end;
 
 type

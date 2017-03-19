@@ -113,7 +113,7 @@ type
 type
   UIImagePickerControllerDelegateProtocol = objcprotocol external name 'UIImagePickerControllerDelegate' (NSObjectProtocol)
   optional
-    procedure imagePickerController_didFinishPickingImage_editingInfo (picker: UIImagePickerController; image: UIImage; editingInfo: nullable NSDictionaryPtr); message 'imagePickerController:didFinishPickingImage:editingInfo:'; deprecated 'in 2_0, 3_0';
+    procedure imagePickerController_didFinishPickingImage_editingInfo (picker: UIImagePickerController; image: UIImage; editingInfo: NSDictionaryPtr); message 'imagePickerController:didFinishPickingImage:editingInfo:'; deprecated 'in 2_0, 3_0';
     procedure imagePickerController_didFinishPickingMediaWithInfo (picker: UIImagePickerController; info: NSDictionary); message 'imagePickerController:didFinishPickingMediaWithInfo:';
     procedure imagePickerControllerDidCancel (picker: UIImagePickerController); message 'imagePickerControllerDidCancel:';
   end;

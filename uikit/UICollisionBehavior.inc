@@ -14,7 +14,7 @@ type
 const
   UICollisionBehaviorModeItems = 1 shl 0;
   UICollisionBehaviorModeBoundaries = 1 shl 1;
-  UICollisionBehaviorModeEverything = NSUIntegerMax;
+  UICollisionBehaviorModeEverything = ULONG_MAX;
 {$endif}
 
 {$ifdef PROTOCOLS}

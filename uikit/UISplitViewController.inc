@@ -56,8 +56,8 @@ type
     procedure setMaximumPrimaryColumnWidth(newValue: CGFloat); message 'setMaximumPrimaryColumnWidth:';
     function maximumPrimaryColumnWidth: CGFloat; message 'maximumPrimaryColumnWidth';
     function primaryColumnWidth: CGFloat; message 'primaryColumnWidth';
-    procedure showViewController_sender (vc: UIViewController; sender: nullable id); message 'showViewController:sender:'; { available in 8_0 }
-    procedure showDetailViewController_sender (vc: UIViewController; sender: nullable id); message 'showDetailViewController:sender:'; { available in 8_0 }
+    procedure showViewController_sender (vc: UIViewController; sender: id); message 'showViewController:sender:'; { available in 8_0 }
+    procedure showDetailViewController_sender (vc: UIViewController; sender: id); message 'showDetailViewController:sender:'; { available in 8_0 }
   end;
 {$endif}
 
@@ -68,12 +68,12 @@ type
   optional
     procedure splitViewController_willChangeToDisplayMode (svc: UISplitViewController; displayMode: UISplitViewControllerDisplayMode); message 'splitViewController:willChangeToDisplayMode:'; { available in 8_0 }
     function targetDisplayModeForActionInSplitViewController (svc: UISplitViewController): UISplitViewControllerDisplayMode; message 'targetDisplayModeForActionInSplitViewController:'; { available in 8_0 }
-    function splitViewController_showViewController_sender (splitViewController: UISplitViewController; vc: UIViewController; sender: nullable id): boolean; message 'splitViewController:showViewController:sender:'; { available in 8_0 }
-    function splitViewController_showDetailViewController_sender (splitViewController: UISplitViewController; vc: UIViewController; sender: nullable id): boolean; message 'splitViewController:showDetailViewController:sender:'; { available in 8_0 }
-    function primaryViewControllerForCollapsingSplitViewController (splitViewController: UISplitViewController): nullable UIViewControllerPtr; message 'primaryViewControllerForCollapsingSplitViewController:'; { available in 8_0 }
-    function primaryViewControllerForExpandingSplitViewController (splitViewController: UISplitViewController): nullable UIViewControllerPtr; message 'primaryViewControllerForExpandingSplitViewController:'; { available in 8_0 }
+    function splitViewController_showViewController_sender (splitViewController: UISplitViewController; vc: UIViewController; sender: id): boolean; message 'splitViewController:showViewController:sender:'; { available in 8_0 }
+    function splitViewController_showDetailViewController_sender (splitViewController: UISplitViewController; vc: UIViewController; sender: id): boolean; message 'splitViewController:showDetailViewController:sender:'; { available in 8_0 }
+    function primaryViewControllerForCollapsingSplitViewController (splitViewController: UISplitViewController): UIViewControllerPtr; message 'primaryViewControllerForCollapsingSplitViewController:'; { available in 8_0 }
+    function primaryViewControllerForExpandingSplitViewController (splitViewController: UISplitViewController): UIViewControllerPtr; message 'primaryViewControllerForExpandingSplitViewController:'; { available in 8_0 }
     function splitViewController_collapseSecondaryViewController_ontoPrimaryViewController (splitViewController: UISplitViewController; secondaryViewController: UIViewController; primaryViewController: UIViewController): boolean; message 'splitViewController:collapseSecondaryViewController:ontoPrimaryViewController:'; { available in 8_0 }
-    function splitViewController_separateSecondaryViewControllerFromPrimaryViewController (splitViewController: UISplitViewController; primaryViewController: UIViewController): nullable UIViewControllerPtr; message 'splitViewController:separateSecondaryViewControllerFromPrimaryViewController:'; { available in 8_0 }
+    function splitViewController_separateSecondaryViewControllerFromPrimaryViewController (splitViewController: UISplitViewController; primaryViewController: UIViewController): UIViewControllerPtr; message 'splitViewController:separateSecondaryViewControllerFromPrimaryViewController:'; { available in 8_0 }
     function splitViewControllerSupportedInterfaceOrientations (splitViewController: UISplitViewController): UIInterfaceOrientationMask; message 'splitViewControllerSupportedInterfaceOrientations:'; { available in 7_0 }
     function splitViewControllerPreferredInterfaceOrientationForPresentation (splitViewController: UISplitViewController): UIInterfaceOrientation; message 'splitViewControllerPreferredInterfaceOrientationForPresentation:'; { available in 7_0 }
     procedure splitViewController_willHideViewController_withBarButtonItem_forPopoverController (svc: UISplitViewController; aViewController: UIViewController; barButtonItem: UIBarButtonItem; pc: UIPopoverController); message 'splitViewController:willHideViewController:withBarButtonItem:forPopoverController:'; deprecated 'in 2_0, 8_0, "Use splitViewController:willChangeToDisplayMode: and displayModeButtonItem instead"';
@@ -89,7 +89,7 @@ type
   UIViewController_UISplitViewController = objccategory external name 'UISplitViewController' (UIViewController)
     function splitViewController: UISplitViewController; message 'splitViewController';
     procedure collapseSecondaryViewController_forSplitViewController (secondaryViewController: UIViewController; splitViewController_: UISplitViewController); message 'collapseSecondaryViewController:forSplitViewController:'; { available in 8_0 }
-    function separateSecondaryViewControllerForSplitViewController (splitViewController_: UISplitViewController): nullable UIViewControllerPtr; message 'separateSecondaryViewControllerForSplitViewController:'; { available in 8_0 }
+    function separateSecondaryViewControllerForSplitViewController (splitViewController_: UISplitViewController): UIViewControllerPtr; message 'separateSecondaryViewControllerForSplitViewController:'; { available in 8_0 }
   end;
 {$endif}
 

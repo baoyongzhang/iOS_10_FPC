@@ -49,17 +49,17 @@ type
   optional
     function documentInteractionControllerViewControllerForPreview (controller: UIDocumentInteractionController): UIViewController; message 'documentInteractionControllerViewControllerForPreview:';
     function documentInteractionControllerRectForPreview (controller: UIDocumentInteractionController): CGRect; message 'documentInteractionControllerRectForPreview:';
-    function documentInteractionControllerViewForPreview (controller: UIDocumentInteractionController): nullable UIViewPtr; message 'documentInteractionControllerViewForPreview:';
+    function documentInteractionControllerViewForPreview (controller: UIDocumentInteractionController): UIViewPtr; message 'documentInteractionControllerViewForPreview:';
     procedure documentInteractionControllerWillBeginPreview (controller: UIDocumentInteractionController); message 'documentInteractionControllerWillBeginPreview:';
     procedure documentInteractionControllerDidEndPreview (controller: UIDocumentInteractionController); message 'documentInteractionControllerDidEndPreview:';
     procedure documentInteractionControllerWillPresentOptionsMenu (controller: UIDocumentInteractionController); message 'documentInteractionControllerWillPresentOptionsMenu:';
     procedure documentInteractionControllerDidDismissOptionsMenu (controller: UIDocumentInteractionController); message 'documentInteractionControllerDidDismissOptionsMenu:';
     procedure documentInteractionControllerWillPresentOpenInMenu (controller: UIDocumentInteractionController); message 'documentInteractionControllerWillPresentOpenInMenu:';
     procedure documentInteractionControllerDidDismissOpenInMenu (controller: UIDocumentInteractionController); message 'documentInteractionControllerDidDismissOpenInMenu:';
-    procedure documentInteractionController_willBeginSendingToApplication (controller: UIDocumentInteractionController; application: nullable NSStringPtr); message 'documentInteractionController:willBeginSendingToApplication:';
-    procedure documentInteractionController_didEndSendingToApplication (controller: UIDocumentInteractionController; application: nullable NSStringPtr); message 'documentInteractionController:didEndSendingToApplication:';
-    function documentInteractionController_canPerformAction (controller: UIDocumentInteractionController; action: nullable SEL): boolean; message 'documentInteractionController:canPerformAction:'; deprecated 'in 3_2, 6_0';
-    function documentInteractionController_performAction (controller: UIDocumentInteractionController; action: nullable SEL): boolean; message 'documentInteractionController:performAction:'; deprecated 'in 3_2, 6_0';
+    procedure documentInteractionController_willBeginSendingToApplication (controller: UIDocumentInteractionController; application: NSStringPtr); message 'documentInteractionController:willBeginSendingToApplication:';
+    procedure documentInteractionController_didEndSendingToApplication (controller: UIDocumentInteractionController; application: NSStringPtr); message 'documentInteractionController:didEndSendingToApplication:';
+    function documentInteractionController_canPerformAction (controller: UIDocumentInteractionController; action: SEL): boolean; message 'documentInteractionController:canPerformAction:'; deprecated 'in 3_2, 6_0';
+    function documentInteractionController_performAction (controller: UIDocumentInteractionController; action: SEL): boolean; message 'documentInteractionController:performAction:'; deprecated 'in 3_2, 6_0';
   end;
 {$endif}
 

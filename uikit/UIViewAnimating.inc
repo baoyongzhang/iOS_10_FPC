@@ -49,7 +49,7 @@ type
     procedure addAnimations_delayFactor (animation: OpaqueCBlock; delayFactor: CGFloat); message 'addAnimations:delayFactor:';
     procedure addAnimations (animation: OpaqueCBlock); message 'addAnimations:';
     procedure addCompletion (completion: OpaqueCBlock); message 'addCompletion:';
-    procedure continueAnimationWithTimingParameters_durationFactor (parameters: nullable UITimingCurveProviderProtocol; durationFactor: CGFloat); message 'continueAnimationWithTimingParameters:durationFactor:';
+    procedure continueAnimationWithTimingParameters_durationFactor (parameters: UITimingCurveProviderProtocol; durationFactor: CGFloat); message 'continueAnimationWithTimingParameters:durationFactor:';
   end;
 {$endif}
 

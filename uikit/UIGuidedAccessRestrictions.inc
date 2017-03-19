@@ -27,14 +27,14 @@ type
   UIGuidedAccessRestrictionDelegateProtocol = objcprotocol external name 'UIGuidedAccessRestrictionDelegate' (NSObjectProtocol)
   required
     {$if defined(UIKIT_DEFINE_AS_PROPERTIES)}
-    function guidedAccessRestrictionIdentifiers: NSString *ProtocolPtr; message 'guidedAccessRestrictionIdentifiers';
+    function guidedAccessRestrictionIdentifiers: NSString; message 'guidedAccessRestrictionIdentifiers';
     {$else}
-    function guidedAccessRestrictionIdentifiers: nullable NSString *ProtocolPtr; message 'guidedAccessRestrictionIdentifiers';
+    function guidedAccessRestrictionIdentifiers: NSString; message 'guidedAccessRestrictionIdentifiers';
     {$endif}
     procedure guidedAccessRestrictionWithIdentifier_didChangeState (restrictionIdentifier: NSString; newRestrictionState: UIGuidedAccessRestrictionState); message 'guidedAccessRestrictionWithIdentifier:didChangeState:';
-    function textForGuidedAccessRestrictionWithIdentifier (restrictionIdentifier: NSString): nullable NSStringPtr; message 'textForGuidedAccessRestrictionWithIdentifier:';
+    function textForGuidedAccessRestrictionWithIdentifier (restrictionIdentifier: NSString): NSStringPtr; message 'textForGuidedAccessRestrictionWithIdentifier:';
   optional
-    function detailTextForGuidedAccessRestrictionWithIdentifier (restrictionIdentifier: NSString): nullable NSStringPtr; message 'detailTextForGuidedAccessRestrictionWithIdentifier:';
+    function detailTextForGuidedAccessRestrictionWithIdentifier (restrictionIdentifier: NSString): NSStringPtr; message 'detailTextForGuidedAccessRestrictionWithIdentifier:';
   end;
 {$endif}
 

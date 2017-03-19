@@ -28,7 +28,7 @@ type
   NSDecimalNumberBehaviorsProtocol = objcprotocol external name 'NSDecimalNumberBehaviors'
     function roundingMode: NSRoundingMode; message 'roundingMode';
     function scale: cshort; message 'scale';
-    function exceptionDuringOperation_error_leftOperand_rightOperand (operation: SEL; error: NSCalculationError; leftOperand: NSDecimalNumber; rightOperand: nullable NSDecimalNumberPtr): nullable NSDecimalNumberPtr; message 'exceptionDuringOperation:error:leftOperand:rightOperand:';
+    function exceptionDuringOperation_error_leftOperand_rightOperand (operation: SEL; error: NSCalculationError; leftOperand: NSDecimalNumber; rightOperand: NSDecimalNumberPtr): NSDecimalNumberPtr; message 'exceptionDuringOperation:error:leftOperand:rightOperand:';
   end;
 {$endif}
 

@@ -13,7 +13,6 @@ type
 const
   UIProgressViewStyleDefault = 0;
   UIProgressViewStyleBar = 1;
-  __TVOS_PROHIBITED = 2;
 {$endif}
 
 {$ifdef CLASSES}

@@ -21,19 +21,19 @@ type
 type
   UIResponderStandardEditActionsProtocol = objcprotocol external name 'UIResponderStandardEditActions' (NSObjectProtocol)
   optional
-    procedure cut (sender: nullable id); message 'cut:'; { available in 3_0 }
-    procedure copy (sender: nullable id); message 'copy:'; { available in 3_0 }
-    procedure paste (sender: nullable id); message 'paste:'; { available in 3_0 }
-    procedure select (sender: nullable id); message 'select:'; { available in 3_0 }
-    procedure selectAll (sender: nullable id); message 'selectAll:'; { available in 3_0 }
-    procedure delete (sender: nullable id); message 'delete:'; { available in 3_2 }
-    procedure makeTextWritingDirectionLeftToRight (sender: nullable id); message 'makeTextWritingDirectionLeftToRight:'; { available in 5_0 }
-    procedure makeTextWritingDirectionRightToLeft (sender: nullable id); message 'makeTextWritingDirectionRightToLeft:'; { available in 5_0 }
-    procedure toggleBoldface (sender: nullable id); message 'toggleBoldface:'; { available in 6_0 }
-    procedure toggleItalics (sender: nullable id); message 'toggleItalics:'; { available in 6_0 }
-    procedure toggleUnderline (sender: nullable id); message 'toggleUnderline:'; { available in 6_0 }
-    procedure increaseSize (sender: nullable id); message 'increaseSize:'; { available in 7_0 }
-    procedure decreaseSize (sender: nullable id); message 'decreaseSize:'; { available in 7_0 }
+    procedure cut (sender: id); message 'cut:'; { available in 3_0 }
+    procedure copy (sender: id); message 'copy:'; { available in 3_0 }
+    procedure paste (sender: id); message 'paste:'; { available in 3_0 }
+    procedure select (sender: id); message 'select:'; { available in 3_0 }
+    procedure selectAll (sender: id); message 'selectAll:'; { available in 3_0 }
+    procedure delete (sender: id); message 'delete:'; { available in 3_2 }
+    procedure makeTextWritingDirectionLeftToRight (sender: id); message 'makeTextWritingDirectionLeftToRight:'; { available in 5_0 }
+    procedure makeTextWritingDirectionRightToLeft (sender: id); message 'makeTextWritingDirectionRightToLeft:'; { available in 5_0 }
+    procedure toggleBoldface (sender: id); message 'toggleBoldface:'; { available in 6_0 }
+    procedure toggleItalics (sender: id); message 'toggleItalics:'; { available in 6_0 }
+    procedure toggleUnderline (sender: id); message 'toggleUnderline:'; { available in 6_0 }
+    procedure increaseSize (sender: id); message 'increaseSize:'; { available in 7_0 }
+    procedure decreaseSize (sender: id); message 'decreaseSize:'; { available in 7_0 }
   end;
 {$endif}
 
@@ -45,7 +45,7 @@ type
     {$if defined(UIKIT_DEFINE_AS_PROPERTIES)}
     function nextResponder: UIResponder; message 'nextResponder';
     {$else}
-    function nextResponder: nullable UIResponderPtr; message 'nextResponder';
+    function nextResponder: UIResponderPtr; message 'nextResponder';
     {$endif}
     {$if defined(UIKIT_DEFINE_AS_PROPERTIES)}
     function canBecomeFirstResponder: boolean; message 'canBecomeFirstResponder';
@@ -64,37 +64,37 @@ type
     {$else}
     function isFirstResponder: boolean; message 'isFirstResponder';
     {$endif}
-    procedure touchesBegan_withEvent (touches: UITouch *ProtocolPtr; event: nullable UIEventPtr); message 'touchesBegan:withEvent:';
-    procedure touchesMoved_withEvent (touches: UITouch *ProtocolPtr; event: nullable UIEventPtr); message 'touchesMoved:withEvent:';
-    procedure touchesEnded_withEvent (touches: UITouch *ProtocolPtr; event: nullable UIEventPtr); message 'touchesEnded:withEvent:';
-    procedure touchesCancelled_withEvent (touches: UITouch *ProtocolPtr; event: nullable UIEventPtr); message 'touchesCancelled:withEvent:';
-    procedure touchesEstimatedPropertiesUpdated (touches: UITouch *ProtocolPtr); message 'touchesEstimatedPropertiesUpdated:'; { available in 9_1 }
-    procedure pressesBegan_withEvent (presses: UIPress *ProtocolPtr; event: nullable UIPressesEventPtr); message 'pressesBegan:withEvent:'; { available in 9_0 }
-    procedure pressesChanged_withEvent (presses: UIPress *ProtocolPtr; event: nullable UIPressesEventPtr); message 'pressesChanged:withEvent:'; { available in 9_0 }
-    procedure pressesEnded_withEvent (presses: UIPress *ProtocolPtr; event: nullable UIPressesEventPtr); message 'pressesEnded:withEvent:'; { available in 9_0 }
-    procedure pressesCancelled_withEvent (presses: UIPress *ProtocolPtr; event: nullable UIPressesEventPtr); message 'pressesCancelled:withEvent:'; { available in 9_0 }
-    procedure motionBegan_withEvent (motion_: UIEventSubtype; event: nullable UIEventPtr); message 'motionBegan:withEvent:'; { available in 3_0 }
-    procedure motionEnded_withEvent (motion_: UIEventSubtype; event: nullable UIEventPtr); message 'motionEnded:withEvent:'; { available in 3_0 }
-    procedure motionCancelled_withEvent (motion_: UIEventSubtype; event: nullable UIEventPtr); message 'motionCancelled:withEvent:'; { available in 3_0 }
-    procedure remoteControlReceivedWithEvent (event: nullable UIEventPtr); message 'remoteControlReceivedWithEvent:'; { available in 4_0 }
-    function canPerformAction_withSender (action: SEL; sender: nullable id): boolean; message 'canPerformAction:withSender:'; { available in 3_0 }
-    function targetForAction_withSender (action: SEL; sender: nullable id): nullable id; message 'targetForAction:withSender:'; { available in 7_0 }
+    procedure touchesBegan_withEvent (touches: UITouch; event: UIEventPtr); message 'touchesBegan:withEvent:';
+    procedure touchesMoved_withEvent (touches: UITouch; event: UIEventPtr); message 'touchesMoved:withEvent:';
+    procedure touchesEnded_withEvent (touches: UITouch; event: UIEventPtr); message 'touchesEnded:withEvent:';
+    procedure touchesCancelled_withEvent (touches: UITouch; event: UIEventPtr); message 'touchesCancelled:withEvent:';
+    procedure touchesEstimatedPropertiesUpdated (touches: UITouch); message 'touchesEstimatedPropertiesUpdated:'; { available in 9_1 }
+    procedure pressesBegan_withEvent (presses: UIPress; event: UIPressesEventPtr); message 'pressesBegan:withEvent:'; { available in 9_0 }
+    procedure pressesChanged_withEvent (presses: UIPress; event: UIPressesEventPtr); message 'pressesChanged:withEvent:'; { available in 9_0 }
+    procedure pressesEnded_withEvent (presses: UIPress; event: UIPressesEventPtr); message 'pressesEnded:withEvent:'; { available in 9_0 }
+    procedure pressesCancelled_withEvent (presses: UIPress; event: UIPressesEventPtr); message 'pressesCancelled:withEvent:'; { available in 9_0 }
+    procedure motionBegan_withEvent (motion_: UIEventSubtype; event: UIEventPtr); message 'motionBegan:withEvent:'; { available in 3_0 }
+    procedure motionEnded_withEvent (motion_: UIEventSubtype; event: UIEventPtr); message 'motionEnded:withEvent:'; { available in 3_0 }
+    procedure motionCancelled_withEvent (motion_: UIEventSubtype; event: UIEventPtr); message 'motionCancelled:withEvent:'; { available in 3_0 }
+    procedure remoteControlReceivedWithEvent (event: UIEventPtr); message 'remoteControlReceivedWithEvent:'; { available in 4_0 }
+    function canPerformAction_withSender (action: SEL; sender: id): boolean; message 'canPerformAction:withSender:'; { available in 3_0 }
+    function targetForAction_withSender (action: SEL; sender: id): id; message 'targetForAction:withSender:'; { available in 7_0 }
     function undoManager: NSUndoManager; message 'undoManager';
 
     { Adopted protocols }
-    procedure copy (sender: nullable id); message 'copy:'; { available in 3_0 }
-    procedure cut (sender: nullable id); message 'cut:'; { available in 3_0 }
-    procedure decreaseSize (sender: nullable id); message 'decreaseSize:'; { available in 7_0 }
-    procedure delete (sender: nullable id); message 'delete:'; { available in 3_2 }
-    procedure increaseSize (sender: nullable id); message 'increaseSize:'; { available in 7_0 }
-    procedure makeTextWritingDirectionLeftToRight (sender: nullable id); message 'makeTextWritingDirectionLeftToRight:'; { available in 5_0 }
-    procedure makeTextWritingDirectionRightToLeft (sender: nullable id); message 'makeTextWritingDirectionRightToLeft:'; { available in 5_0 }
-    procedure paste (sender: nullable id); message 'paste:'; { available in 3_0 }
-    procedure select (sender: nullable id); message 'select:'; { available in 3_0 }
-    procedure selectAll (sender: nullable id); message 'selectAll:'; { available in 3_0 }
-    procedure toggleBoldface (sender: nullable id); message 'toggleBoldface:'; { available in 6_0 }
-    procedure toggleItalics (sender: nullable id); message 'toggleItalics:'; { available in 6_0 }
-    procedure toggleUnderline (sender: nullable id); message 'toggleUnderline:'; { available in 6_0 }
+    procedure copy (sender: id); message 'copy:'; { available in 3_0 }
+    procedure cut (sender: id); message 'cut:'; { available in 3_0 }
+    procedure decreaseSize (sender: id); message 'decreaseSize:'; { available in 7_0 }
+    procedure delete (sender: id); message 'delete:'; { available in 3_2 }
+    procedure increaseSize (sender: id); message 'increaseSize:'; { available in 7_0 }
+    procedure makeTextWritingDirectionLeftToRight (sender: id); message 'makeTextWritingDirectionLeftToRight:'; { available in 5_0 }
+    procedure makeTextWritingDirectionRightToLeft (sender: id); message 'makeTextWritingDirectionRightToLeft:'; { available in 5_0 }
+    procedure paste (sender: id); message 'paste:'; { available in 3_0 }
+    procedure select (sender: id); message 'select:'; { available in 3_0 }
+    procedure selectAll (sender: id); message 'selectAll:'; { available in 3_0 }
+    procedure toggleBoldface (sender: id); message 'toggleBoldface:'; { available in 6_0 }
+    procedure toggleItalics (sender: id); message 'toggleItalics:'; { available in 6_0 }
+    procedure toggleUnderline (sender: id); message 'toggleUnderline:'; { available in 6_0 }
   end;
 {$endif}
 
@@ -118,7 +118,7 @@ type
   UIKeyCommand = objcclass external (NSObject, NSCopyingProtocol, NSSecureCodingProtocol)
   public
     function init: instancetype; message 'init'; { NS_DESIGNATED_INITIALIZER }
-    function initWithCoder (aDecoder: NSCoder): nullable instancetype; message 'initWithCoder:'; { NS_DESIGNATED_INITIALIZER }
+    function initWithCoder (aDecoder: NSCoder): instancetype; message 'initWithCoder:'; { NS_DESIGNATED_INITIALIZER }
     function input: NSString; message 'input';
     function modifierFlags: UIKeyModifierFlags; message 'modifierFlags';
     procedure setDiscoverabilityTitle(newValue: NSString); message 'setDiscoverabilityTitle:';
@@ -127,7 +127,7 @@ type
     class function keyCommandWithInput_modifierFlags_action_discoverabilityTitle (input_: NSString; modifierFlags_: UIKeyModifierFlags; action: SEL; discoverabilityTitle_: NSString): UIKeyCommand; message 'keyCommandWithInput:modifierFlags:action:discoverabilityTitle:'; { available in 9_0 }
 
     { Adopted protocols }
-    function copyWithZone (zone: nullable NSZonePtr): id; message 'copyWithZone:';
+    function copyWithZone (zone: NSZonePtr): id; message 'copyWithZone:';
     procedure encodeWithCoder (aCoder: NSCoder); message 'encodeWithCoder:';
     function supportsSecureCoding: boolean; message 'supportsSecureCoding';
   end;

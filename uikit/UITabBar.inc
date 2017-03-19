@@ -75,10 +75,10 @@ type
   UITabBarDelegateProtocol = objcprotocol external name 'UITabBarDelegate' (NSObjectProtocol)
   optional
     procedure tabBar_didSelectItem (tabBar: UITabBar; item: UITabBarItem); message 'tabBar:didSelectItem:';
-    procedure tabBar_willBeginCustomizingItems (tabBar: UITabBar; items: UITabBarItem *ProtocolPtr); message 'tabBar:willBeginCustomizingItems:';
-    procedure tabBar_didBeginCustomizingItems (tabBar: UITabBar; items: UITabBarItem *ProtocolPtr); message 'tabBar:didBeginCustomizingItems:';
-    procedure tabBar_willEndCustomizingItems_changed (tabBar: UITabBar; items: UITabBarItem *ProtocolPtr; changed: boolean); message 'tabBar:willEndCustomizingItems:changed:';
-    procedure tabBar_didEndCustomizingItems_changed (tabBar: UITabBar; items: UITabBarItem *ProtocolPtr; changed: boolean); message 'tabBar:didEndCustomizingItems:changed:';
+    procedure tabBar_willBeginCustomizingItems (tabBar: UITabBar; items: UITabBarItem); message 'tabBar:willBeginCustomizingItems:';
+    procedure tabBar_didBeginCustomizingItems (tabBar: UITabBar; items: UITabBarItem); message 'tabBar:didBeginCustomizingItems:';
+    procedure tabBar_willEndCustomizingItems_changed (tabBar: UITabBar; items: UITabBarItem; changed: boolean); message 'tabBar:willEndCustomizingItems:changed:';
+    procedure tabBar_didEndCustomizingItems_changed (tabBar: UITabBar; items: UITabBarItem; changed: boolean); message 'tabBar:didEndCustomizingItems:changed:';
   end;
 {$endif}
 

@@ -66,8 +66,8 @@ type
     procedure cancelInteractiveTransition; message 'cancelInteractiveTransition';
     procedure pauseInteractiveTransition; message 'pauseInteractiveTransition'; { available in 10_0 }
     procedure completeTransition (didComplete: boolean); message 'completeTransition:';
-    function viewControllerForKey (key: UITransitionContextViewControllerKey): nullable __kindof UIViewControllerPtr; message 'viewControllerForKey:';
-    function viewForKey (key: UITransitionContextViewKey): nullable __kindof UIViewPtr; message 'viewForKey:'; { available in 8_0 }
+    function viewControllerForKey (key: UITransitionContextViewControllerKey): UIViewControllerPtr; message 'viewControllerForKey:';
+    function viewForKey (key: UITransitionContextViewKey): UIViewPtr; message 'viewForKey:'; { available in 8_0 }
     {$if defined(UIKIT_DEFINE_AS_PROPERTIES)}
     function targetTransform: CGAffineTransform; message 'targetTransform';
     {$else}
@@ -79,7 +79,7 @@ type
 
 type
   UIViewControllerAnimatedTransitioningProtocol = objcprotocol external name 'UIViewControllerAnimatedTransitioning' (NSObjectProtocol)
-    function transitionDuration (transitionContext: nullable UIViewControllerContextTransitioningProtocol): NSTimeInterval; message 'transitionDuration:';
+    function transitionDuration (transitionContext: UIViewControllerContextTransitioningProtocol): NSTimeInterval; message 'transitionDuration:';
     procedure animateTransition (transitionContext: UIViewControllerContextTransitioningProtocol); message 'animateTransition:';
   optional
     function interruptibleAnimatorForTransition (transitionContext: UIViewControllerContextTransitioningProtocol): UIViewImplicitlyAnimatingProtocol; message 'interruptibleAnimatorForTransition:'; { available in 10_0 }
@@ -103,11 +103,11 @@ type
 type
   UIViewControllerTransitioningDelegateProtocol = objcprotocol external name 'UIViewControllerTransitioningDelegate' (NSObjectProtocol)
   optional
-    function animationControllerForPresentedController_presentingController_sourceController (presented: UIViewController; presenting: UIViewController; source: UIViewController): nullable UIViewControllerAnimatedTransitioningProtocol; message 'animationControllerForPresentedController:presentingController:sourceController:';
-    function animationControllerForDismissedController (dismissed: UIViewController): nullable UIViewControllerAnimatedTransitioningProtocol; message 'animationControllerForDismissedController:';
-    function interactionControllerForPresentation (animator: UIViewControllerAnimatedTransitioningProtocol): nullable UIViewControllerInteractiveTransitioningProtocol; message 'interactionControllerForPresentation:';
-    function interactionControllerForDismissal (animator: UIViewControllerAnimatedTransitioningProtocol): nullable UIViewControllerInteractiveTransitioningProtocol; message 'interactionControllerForDismissal:';
-    function presentationControllerForPresentedViewController_presentingViewController_sourceViewController (presented: UIViewController; presenting: nullable UIViewControllerPtr; source: UIViewController): nullable UIPresentationControllerPtr; message 'presentationControllerForPresentedViewController:presentingViewController:sourceViewController:'; { available in 8_0 }
+    function animationControllerForPresentedController_presentingController_sourceController (presented: UIViewController; presenting: UIViewController; source: UIViewController): UIViewControllerAnimatedTransitioningProtocol; message 'animationControllerForPresentedController:presentingController:sourceController:';
+    function animationControllerForDismissedController (dismissed: UIViewController): UIViewControllerAnimatedTransitioningProtocol; message 'animationControllerForDismissedController:';
+    function interactionControllerForPresentation (animator: UIViewControllerAnimatedTransitioningProtocol): UIViewControllerInteractiveTransitioningProtocol; message 'interactionControllerForPresentation:';
+    function interactionControllerForDismissal (animator: UIViewControllerAnimatedTransitioningProtocol): UIViewControllerInteractiveTransitioningProtocol; message 'interactionControllerForDismissal:';
+    function presentationControllerForPresentedViewController_presentingViewController_sourceViewController (presented: UIViewController; presenting: UIViewControllerPtr; source: UIViewController): UIPresentationControllerPtr; message 'presentationControllerForPresentedViewController:presentingViewController:sourceViewController:'; { available in 8_0 }
   end;
 {$endif}
 

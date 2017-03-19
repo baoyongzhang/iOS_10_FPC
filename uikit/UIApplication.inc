@@ -1,23 +1,5 @@
 { Parsed from UIKit.framework UIApplication.h }
 
-{ Types from UIApplication }
-{$ifdef TYPES}
-
-
-{$endif}
-
-
-{ Types from UIRemoteNotifications }
-{$ifdef TYPES}
-
-{$endif}
-
-
-{ Types from UIApplication_UIUserNotificationSettings }
-{$ifdef TYPES}
-
-{$endif}
-
 
 { Types from UIApplicationDelegateProtocol }
 {$ifdef TYPES}
@@ -85,7 +67,7 @@ const
 
 {$ifdef EXTERNAL_SYMBOLS}
 var
-  __TVOS_PROHIBITED: NSExceptionName UIApplicationInvalidInterfaceOrientationException { available in 6_0 }; cvar; external;
+  UIApplicationInvalidInterfaceOrientationException: NSString { available in 6_0 }; cvar; external;
 {$endif}
 
 {$ifdef TYPES}
@@ -149,60 +131,185 @@ type
 var
   UIBackgroundTaskInvalid: UIBackgroundTaskIdentifier { available in 4_0 }; cvar; external;
   UIMinimumKeepAliveTimeout: NSTimeInterval { available in 4_0 }; cvar; external;
-  __TVOS_PROHIBITED: NSTimeInterval UIApplicationBackgroundFetchIntervalMinimum { available in 7_0 }; cvar; external;
-  __TVOS_PROHIBITED: NSTimeInterval UIApplicationBackgroundFetchIntervalNever { available in 7_0 }; cvar; external;
+  UIApplicationBackgroundFetchIntervalMinimum: NSTimeInterval { available in 7_0 }; cvar; external;
+  UIApplicationBackgroundFetchIntervalNever: NSTimeInterval { available in 7_0 }; cvar; external;
+{$endif}
+
+{$ifdef TYPES}
+
 {$endif}
 
 {$ifdef CLASSES}
 
 type
-  UIApplication = objcclass external (UIResponder)
+  UIApplication = objcclass external (UIResponder, UIActionSheetDelegateProtocol)
+  private
+    _delegate: UIApplicationDelegateProtocol;
+    _exclusiveTouchWindows: NSMutableSet;
+    _event: UIEvent;
+    _touchesEvent: UIEvent;
+    _motionEvent: UIEvent;
+    _remoteControlEvent: UIEvent;
+    _remoteControlEventObservers: NSInteger;
+    _topLevelNibObjects: NSArray;
+    _networkResourcesCurrentlyLoadingCount: NSInteger;
+    _hideNetworkActivityIndicatorTimer: NSTimer;
+    _editAlertView: UIAlertView;
+    _statusBar: UIStatusBar;
+    _statusBarRequestedStyle: UIStatusBarStyle;
+    _statusBarWindow: UIStatusBarWindow;
+    _observerBlocks: NSMutableArray;
+    _postCommitActions: NSMutableArray;
+    _mainStoryboardName: NSString;
+    _tintViewDurationStack: NSMutableArray;
+    _statusBarTintColorLockingControllers: NSMutableArray;
+    _statusBarTintColorLockingCount: NSInteger;
+    _preferredContentSizeCategory: NSString;
+    _applicationFlags: bitpacked record
+      case byte of
+        0: (_anonBitField__applicationFlags0: cuint);
+        1: (
+          deactivatingReasonFlags: 0..((1 shl 11)-1);
+          isSuspended: 0..1;
+          isSuspendedEventsOnly: 0..1;
+          isLaunchedSuspended: 0..1;
+          calledNonSuspendedLaunchDelegate: 0..1;
+          calledSuspendedLaunchDelegate: 0..1;
+          isHandlingURL: 0..1;
+          statusBarShowsProgress: 0..1;
+          statusBarHidden: 0..1;
+          statusBarHiddenDefault: 0..1;
+          statusBarHiddenVerticallyCompact: 0..1;
+          blockInteractionEvents: 0..((1 shl 4)-1);
+          receivesMemoryWarnings: 0..1;
+          showingProgress: 0..1;
+          receivesPowerMessages: 0..1;
+          launchEventReceived: 0..1;
+          activateEventReceived: 0..1;
+          systemIsAnimatingApplicationLifecycleEvent: 0..1;
+          isActivating: 0..1;
+          isSuspendedUnderLock: 0..1;
+          shouldExitAfterSendSuspend: 0..1;
+          terminating: 0..1;
+          isHandlingShortCutURL: 0..1;
+          idleTimerDisabled: 0..1;
+          deviceOrientation: 0..((1 shl 3)-1);
+          delegateShouldBeReleasedUponSet: 0..1;
+          delegateHandleOpenURL: 0..1;
+          delegateOpenURL: 0..1;
+          delegateDidReceiveMemoryWarning: 0..1;
+          delegateWillTerminate: 0..1;
+          delegateSignificantTimeChange: 0..1;
+          delegateWillChangeInterfaceOrientation: 0..1;
+          delegateDidChangeInterfaceOrientation: 0..1;
+          delegateWillChangeStatusBarFrame: 0..1;
+          delegateDidChangeStatusBarFrame: 0..1;
+          delegateDeviceAccelerated: 0..1;
+          delegateDeviceChangedOrientation: 0..1;
+          delegateDidBecomeActive: 0..1;
+          delegateWillResignActive: 0..1;
+          delegateDidEnterBackground: 0..1;
+          delegateDidEnterBackgroundWasSent: 0..1;
+          delegateWillEnterForeground: 0..1;
+          delegateWillSuspend: 0..1;
+          delegateDidResume: 0..1;
+          delegateSupportsStateRestoration: 0..1;
+          delegateSupportedInterfaceOrientations: 0..1;
+          delegateHandleSiriTask: 0..1;
+          delegateSupportsWatchKitRequests: 0..1;
+          userDefaultsSyncDisabled: 0..1;
+          headsetButtonClickCount: 0..((1 shl 4)-1);
+          isHeadsetButtonDown: 0..1;
+          isFastForwardActive: 0..1;
+          isRewindActive: 0..1;
+          shakeToEdit: 0..1;
+          zoomInClassicMode: 0..1;
+          ignoreHeadsetClicks: 0..1;
+          touchRotationDisabled: 0..1;
+          taskSuspendingUnsupported: 0..1;
+          taskSuspendingOnLockUnsupported: 0..1;
+          isUnitTests: 0..1;
+          requiresHighResolution: 0..1;
+          singleUseLaunchOrientation: 0..((1 shl 3)-1);
+          defaultInterfaceOrientation: 0..((1 shl 3)-1);
+          supportedInterfaceOrientationsMask: 0..((1 shl 5)-1);
+          delegateWantsNextResponder: 0..1;
+          isRunningInApplicationSwitcher: 0..1;
+          isSendingEventForProgrammaticTouchCancellation: 0..1;
+          delegateWantsStatusBarTouchesEnded: 0..1;
+          interfaceLayoutDirectionIsValid: 0..1;
+          interfaceLayoutDirection: 0..((1 shl 3)-1);
+          restorationExtended: 0..1;
+          normalRestorationInProgress: 0..1;
+          normalRestorationCompleted: 0..1;
+          isDelayingTintViewChange: 0..1;
+          isUpdatingTintViewColor: 0..1;
+          isHandlingMemoryWarning: 0..1;
+          forceStatusBarTintColorChanges: 0..1;
+          disableLegacyAutorotation: 0..1;
+          isFakingForegroundTransitionForBackgroundFetch: 0..1;
+          couldNotRestoreStateWhenLocked: 0..1;
+          disableStyleOverrides: 0..1;
+          legibilityAccessibilitySettingEnabled: 0..1;
+          viewControllerBasedStatusBarAppearance: 0..1;
+          fakingRequiresHighResolution: 0..1;
+          isStatusBarFading: 0..1;
+          systemWindowsSecure: 0..1;
+        );
+      end;
   public
-    {$if defined(UIKIT_DEFINE_AS_PROPERTIES)}
-    function instead."): UIApplication *sharedApplication NS_EXTENSION_UNAVAILABLE_IOS("Use view controller based solutions where appropriate; message 'instead.")';
-    {$else}
-    class function sharedApplication NS_EXTENSION_UNAVAILABLE_IOS("Use view controller based solutions where appropriate instead."): UIApplication; message 'sharedApplication NS_EXTENSION_UNAVAILABLE_IOS("Use view controller based solutions where appropriate instead.")';
-    {$endif}
+    class function sharedApplication : UIApplication; message 'sharedApplication';
     procedure setDelegate(newValue: UIApplicationDelegateProtocol); message 'setDelegate:';
     function delegate: UIApplicationDelegateProtocol; message 'delegate';
-    procedure beginIgnoringInteractionEvents NS_EXTENSION_UNAVAILABLE_IOS(""); message 'beginIgnoringInteractionEvents NS_EXTENSION_UNAVAILABLE_IOS("")';
-    procedure endIgnoringInteractionEvents NS_EXTENSION_UNAVAILABLE_IOS(""); message 'endIgnoringInteractionEvents NS_EXTENSION_UNAVAILABLE_IOS("")';
-    {$if defined(UIKIT_DEFINE_AS_PROPERTIES)}
+    procedure beginIgnoringInteractionEvents; message 'beginIgnoringInteractionEvents';
+    procedure endIgnoringInteractionEvents; message 'endIgnoringInteractionEvents';
     function isIgnoringInteractionEvents: boolean; message 'isIgnoringInteractionEvents';
-    {$else}
-    function isIgnoringInteractionEvents: boolean; message 'isIgnoringInteractionEvents';
-    {$endif}
     procedure setIdleTimerDisabled(newValue: boolean); message 'setIdleTimerDisabled:';
     function isIdleTimerDisabled: boolean; message 'isIdleTimerDisabled';
-    function openURL (url: NSURL): boolean; message 'openURL:'; deprecated 'in 2_0, 10_0, "Please use openURL:options:completionHandler: instead"';
+    function openURL (url: NSURL): boolean; message 'openURL:';
     function canOpenURL (url: NSURL): boolean; message 'canOpenURL:'; { available in 3_0 }
-    procedure openURL_options_completionHandler (url: NSURL; options: NSDictionary; completion: void (^ __nullable)(BOOL success)); message 'openURL:options:completionHandler:'; { available in 10_0 }
     procedure sendEvent (event: UIEvent); message 'sendEvent:';
     function keyWindow: UIWindow; message 'keyWindow';
-    function windows: __kindof UIWindow *ProtocolPtr; message 'windows';
-    function sendAction_to_from_forEvent (action: SEL; target: nullable id; sender: nullable id; event: nullable UIEventPtr): boolean; message 'sendAction:to:from:forEvent:';
-    procedure set__TVOS_PROHIBITED(newValue: BOOL networkActivityIndicatorVisible); message 'set__TVOS_PROHIBITED:';
-    function isNetworkActivityIndicatorVisible: BOOL networkActivityIndicatorVisible; message 'isNetworkActivityIndicatorVisible';
-    function __TVOS_PROHIBITED_: UIStatusBarStyle statusBarStyle; message 'TVOS_PROHIBITED';
-    function isStatusBarHidden: BOOL statusBarHidden; message 'isStatusBarHidden';
-    function __TVOS_PROHIBITED_: UIInterfaceOrientation statusBarOrientation; message 'TVOS_PROHIBITED';
-    function supportedInterfaceOrientationsForWindow (window: nullable UIWindowPtr): UIInterfaceOrientationMask; message 'supportedInterfaceOrientationsForWindow:'; { available in 6_0 }
-    function __TVOS_PROHIBITED__: NSTimeInterval statusBarOrientationAnimationDuration; message 'TVOS_PROHIBITED';
-    function __TVOS_PROHIBITED___: CGRect statusBarFrame; message 'TVOS_PROHIBITED';
+    function windows: NSArray; message 'windows';
+    function sendAction_to_from_forEvent (action: SEL; target: id; sender: id; event: UIEvent): boolean; message 'sendAction:to:from:forEvent:';
+    procedure setNetworkActivityIndicatorVisible(newValue: boolean); message 'setNetworkActivityIndicatorVisible:';
+    function isNetworkActivityIndicatorVisible: boolean; message 'isNetworkActivityIndicatorVisible';
+    procedure setStatusBarStyle(newValue: UIStatusBarStyle); message 'setStatusBarStyle:';
+    function statusBarStyle: UIStatusBarStyle; message 'statusBarStyle';
+    procedure setStatusBarStyle_animated (statusBarStyle_: UIStatusBarStyle; animated: boolean); message 'setStatusBarStyle:animated:';
+    procedure setStatusBarHidden(newValue: boolean); message 'setStatusBarHidden:';
+    function isStatusBarHidden: boolean; message 'isStatusBarHidden';
+    procedure setStatusBarHidden_withAnimation (hidden: boolean; animation: UIStatusBarAnimation); message 'setStatusBarHidden:withAnimation:'; { available in 3_2 }
+    procedure setStatusBarOrientation(newValue: UIInterfaceOrientation); message 'setStatusBarOrientation:';
+    function statusBarOrientation: UIInterfaceOrientation; message 'statusBarOrientation';
+    procedure setStatusBarOrientation_animated (interfaceOrientation: UIInterfaceOrientation; animated: boolean); message 'setStatusBarOrientation:animated:';
+    function supportedInterfaceOrientationsForWindow (window: UIWindow): NSUInteger; message 'supportedInterfaceOrientationsForWindow:'; { available in 6_0 }
+    function statusBarOrientationAnimationDuration: NSTimeInterval; message 'statusBarOrientationAnimationDuration';
+    function statusBarFrame: CGRect; message 'statusBarFrame';
     procedure setApplicationIconBadgeNumber(newValue: NSInteger); message 'setApplicationIconBadgeNumber:';
     function applicationIconBadgeNumber: NSInteger; message 'applicationIconBadgeNumber';
-    procedure set__TVOS_PROHIBITED_(newValue: BOOL applicationSupportsShakeToEdit); message 'set__TVOS_PROHIBITED:';
-    function __TVOS_PROHIBITED____: BOOL applicationSupportsShakeToEdit; message 'TVOS_PROHIBITED';
+    procedure setApplicationSupportsShakeToEdit(newValue: boolean); message 'setApplicationSupportsShakeToEdit:';
+    function applicationSupportsShakeToEdit: boolean; message 'applicationSupportsShakeToEdit';
     function applicationState: UIApplicationState; message 'applicationState';
     function backgroundTimeRemaining: NSTimeInterval; message 'backgroundTimeRemaining';
-    function beginBackgroundTaskWithExpirationHandler (handler: void(^ __nullable)(void)): UIBackgroundTaskIdentifier; message 'beginBackgroundTaskWithExpirationHandler:'; { available in 4_0 }
-    function beginBackgroundTaskWithName_expirationHandler (taskName: nullable NSStringPtr; handler: void(^ __nullable)(void)): UIBackgroundTaskIdentifier; message 'beginBackgroundTaskWithName:expirationHandler:'; { available in 7_0 }
+    function beginBackgroundTaskWithExpirationHandler (handler: OpaqueCBlock): UIBackgroundTaskIdentifier; message 'beginBackgroundTaskWithExpirationHandler:'; { available in 4_0 }
+    function beginBackgroundTaskWithName_expirationHandler (taskName: NSString; handler: OpaqueCBlock): UIBackgroundTaskIdentifier; message 'beginBackgroundTaskWithName:expirationHandler:'; { available in 7_0 }
     procedure endBackgroundTask (identifier: UIBackgroundTaskIdentifier); message 'endBackgroundTask:'; { available in 4_0 }
     procedure setMinimumBackgroundFetchInterval (minimumBackgroundFetchInterval: NSTimeInterval); message 'setMinimumBackgroundFetchInterval:'; { available in 7_0 }
-    function __TVOS_PROHIBITED_____: UIBackgroundRefreshStatus backgroundRefreshStatus; message 'TVOS_PROHIBITED';
+    function backgroundRefreshStatus: UIBackgroundRefreshStatus; message 'backgroundRefreshStatus';
+    function setKeepAliveTimeout_handler (timeout: NSTimeInterval; keepAliveHandler: OpaqueCBlock): boolean; message 'setKeepAliveTimeout:handler:'; { available in 4_0 }
+    procedure clearKeepAliveTimeout; message 'clearKeepAliveTimeout'; { available in 4_0 }
     function isProtectedDataAvailable: boolean; message 'isProtectedDataAvailable';
     function userInterfaceLayoutDirection: UIUserInterfaceLayoutDirection; message 'userInterfaceLayoutDirection';
-    function preferredContentSizeCategory: UIContentSizeCategory; message 'preferredContentSizeCategory';
+    function preferredContentSizeCategory: NSString; message 'preferredContentSizeCategory';
+
+    { Adopted protocols }
+    procedure actionSheet_clickedButtonAtIndex (actionSheet: UIActionSheet; buttonIndex: NSInteger); message 'actionSheet:clickedButtonAtIndex:';
+    procedure actionSheet_didDismissWithButtonIndex (actionSheet: UIActionSheet; buttonIndex: NSInteger); message 'actionSheet:didDismissWithButtonIndex:';
+    procedure actionSheet_willDismissWithButtonIndex (actionSheet: UIActionSheet; buttonIndex: NSInteger); message 'actionSheet:willDismissWithButtonIndex:';
+    procedure actionSheetCancel (actionSheet: UIActionSheet); message 'actionSheetCancel:';
+    procedure didPresentActionSheet (actionSheet: UIActionSheet); message 'didPresentActionSheet:';
+    procedure willPresentActionSheet (actionSheet: UIActionSheet); message 'willPresentActionSheet:';
   end;
 
 
@@ -210,33 +317,25 @@ type
   UIRemoteNotifications = objccategory external (UIApplication)
     procedure registerForRemoteNotifications; message 'registerForRemoteNotifications'; { available in 8_0 }
     procedure unregisterForRemoteNotifications; message 'unregisterForRemoteNotifications'; { available in 3_0 }
-    {$if defined(UIKIT_DEFINE_AS_PROPERTIES)}
-    function isRegisteredForRemoteNotifications: boolean; message 'isRegisteredForRemoteNotifications';
-    {$else}
     function isRegisteredForRemoteNotifications: boolean; message 'isRegisteredForRemoteNotifications'; { available in 8_0 }
-    {$endif}
-    procedure registerForRemoteNotificationTypes (types: UIRemoteNotificationType); message 'registerForRemoteNotificationTypes:'; deprecated 'in 3_0, 8_0, "Use -[UIApplication registerForRemoteNotifications] and UserNotifications Framework's -[UNUserNotificationCenter requestAuthorizationWithOptions:completionHandler:]"';
-    function enabledRemoteNotificationTypes                                                                                                                                                                                                                                                                                __TVOS_PROHIBITED: UIRemoteNotificationType; message 'enabledRemoteNotificationTypes                                                                                                                                                                                                                                                                                __TVOS_PROHIBITED'; deprecated 'in 3_0, 8_0, "Use -[UIApplication isRegisteredForRemoteNotifications] and UserNotifications Framework's -[UNUserNotificationCenter getNotificationSettingsWithCompletionHandler:] to retrieve user-enabled remote notification and user notification settings"';
+    procedure registerForRemoteNotificationTypes (types: UIRemoteNotificationType); message 'registerForRemoteNotificationTypes:'; deprecated 'in 3_0, 8_0, "Please use registerForRemoteNotifications and registerUserNotificationSettings: instead"';
+    function enabledRemoteNotificationTypes: UIRemoteNotificationType; message 'enabledRemoteNotificationTypes'; deprecated 'in 3_0, 8_0, "Please use -[UIApplication isRegisteredForRemoteNotifications], or -[UIApplication currentUserNotificationSettings] to retrieve user-enabled remote notification and user notification settings"';
   end;
 
 type
   UILocalNotifications = objccategory external (UIApplication)
-    procedure presentLocalNotificationNow (notification: UILocalNotification); message 'presentLocalNotificationNow:'; deprecated 'in 4_0, 10_0, "Use UserNotifications Framework's -[UNUserNotificationCenter addNotificationRequest:withCompletionHandler:]"';
-    procedure scheduleLocalNotification (notification: UILocalNotification); message 'scheduleLocalNotification:'; deprecated 'in 4_0, 10_0, "Use UserNotifications Framework's -[UNUserNotificationCenter addNotificationRequest:withCompletionHandler:]"';
-    procedure cancelLocalNotification (notification: UILocalNotification); message 'cancelLocalNotification:'; deprecated 'in 4_0, 10_0, "Use UserNotifications Framework's -[UNUserNotificationCenter removePendingNotificationRequestsWithIdentifiers:]"';
-    procedure cancelAllLocalNotifications                                                                                                                                    __TVOS_PROHIBITED; message 'cancelAllLocalNotifications                                                                                                                                    __TVOS_PROHIBITED'; deprecated 'in 4_0, 10_0, "Use UserNotifications Framework's -[UNUserNotificationCenter removeAllPendingNotificationRequests]"';
-    procedure set__TVOS_PROHIBITED(newValue: UILocalNotification *Protocol *scheduledLocalNotifications); message 'set__TVOS_PROHIBITED:';
-    function __TVOS_PROHIBITED_: UILocalNotification *Protocol *scheduledLocalNotifications; message 'TVOS_PROHIBITED';
+    procedure presentLocalNotificationNow (notification: UILocalNotification); message 'presentLocalNotificationNow:'; { available in 4_0 }
+    procedure scheduleLocalNotification (notification: UILocalNotification); message 'scheduleLocalNotification:'; { available in 4_0 }
+    procedure cancelLocalNotification (notification: UILocalNotification); message 'cancelLocalNotification:'; { available in 4_0 }
+    procedure cancelAllLocalNotifications; message 'cancelAllLocalNotifications'; { available in 4_0 }
+    procedure setScheduledLocalNotifications(newValue: NSArray); message 'setScheduledLocalNotifications:';
+    function scheduledLocalNotifications: NSArray; message 'scheduledLocalNotifications';
   end;
 
 type
   UIApplication_UIUserNotificationSettings = objccategory external name 'UIUserNotificationSettings' (UIApplication)
     procedure registerUserNotificationSettings (notificationSettings: UIUserNotificationSettings); message 'registerUserNotificationSettings:'; { available in 8_0 }
-    {$if defined(UIKIT_DEFINE_AS_PROPERTIES)}
-    function __TVOS_PROHIBITED_: UIUserNotificationSettings *currentUserNotificationSettings; message 'TVOS_PROHIBITED';
-    {$else}
-    function currentUserNotificationSettings                       __TVOS_PROHIBITED: nullable UIUserNotificationSettingsPtr; message 'currentUserNotificationSettings                       __TVOS_PROHIBITED'; { available in 8_0 }
-    {$endif}
+    function currentUserNotificationSettings: UIUserNotificationSettings; message 'currentUserNotificationSettings'; { available in 8_0 }
   end;
 
 type
@@ -247,7 +346,7 @@ type
 
 type
   UINewsstand = objccategory external (UIApplication)
-    procedure setNewsstandIconImage (image: nullable UIImagePtr); message 'setNewsstandIconImage:'; deprecated 'in 5_0, 9_0, "Newsstand apps now behave like normal apps on SpringBoard"';
+    procedure setNewsstandIconImage (image: UIImagePtr); message 'setNewsstandIconImage:'; deprecated 'in 5_0, 9_0, "Newsstand apps now behave like normal apps on SpringBoard"';
   end;
 
 type
@@ -265,41 +364,18 @@ type
   end;
 {$endif}
 
-{$if defined(UIKIT_STRING_ENUMS)}
-{$ifdef TYPES}
-type
-  NS_EXTENSIBLE_STRING_ENUM = NSString *UIApplicationLaunchOptionsKey;
-  NS_EXTENSIBLE_STRING_ENUMPtr = ^NS_EXTENSIBLE_STRING_ENUM;
-{$endif}
-
-{$else}
-{$ifdef TYPES}
-type
-  UIApplicationLaunchOptionsKey = ^NSString;
-{$endif}
-
-{$endif}
 {$ifdef PROTOCOLS}
 
 type
   UIApplicationDelegateProtocol = objcprotocol external name 'UIApplicationDelegate' (NSObjectProtocol)
   optional
     procedure applicationDidFinishLaunching (application: UIApplication); message 'applicationDidFinishLaunching:';
-    {$if defined(UIKIT_STRING_ENUMS)}
-    function application_willFinishLaunchingWithOptions (application: UIApplication; launchOptions: nullable NSDictionaryPtr): boolean; message 'application:willFinishLaunchingWithOptions:'; { available in 6_0 }
-    function application_didFinishLaunchingWithOptions (application: UIApplication; launchOptions: nullable NSDictionaryPtr): boolean; message 'application:didFinishLaunchingWithOptions:'; { available in 3_0 }
-    {$else}
-    function application_willFinishLaunchingWithOptions (application: UIApplication; launchOptions: nullable NSDictionaryPtr): boolean; message 'application:willFinishLaunchingWithOptions:'; { available in 6_0 }
-    function application_didFinishLaunchingWithOptions (application: UIApplication; launchOptions: nullable NSDictionaryPtr): boolean; message 'application:didFinishLaunchingWithOptions:'; { available in 3_0 }
-    {$endif}
+    function application_willFinishLaunchingWithOptions (application: UIApplication; launchOptions: NSDictionary): boolean; message 'application:willFinishLaunchingWithOptions:'; { available in 6_0 }
+    function application_didFinishLaunchingWithOptions (application: UIApplication; launchOptions: NSDictionary): boolean; message 'application:didFinishLaunchingWithOptions:'; { available in 3_0 }
     procedure applicationDidBecomeActive (application: UIApplication); message 'applicationDidBecomeActive:';
     procedure applicationWillResignActive (application: UIApplication); message 'applicationWillResignActive:';
-    function application_handleOpenURL (application: UIApplication; url: NSURL): boolean; message 'application:handleOpenURL:'; deprecated 'in 2_0, 9_0, "Please use application:openURL:options:"';
-    function application_openURL_sourceApplication_annotation (application: UIApplication; url: NSURL; sourceApplication: nullable NSStringPtr; annotation: id): boolean; message 'application:openURL:sourceApplication:annotation:'; deprecated 'in 4_2, 9_0, "Please use application:openURL:options:"';
-    {$if defined(UIKIT_STRING_ENUMS)}
-    {$else}
-    {$endif}
-    function application_openURL_options (app: UIApplication; url: NSURL; options: NSDictionary): boolean; message 'application:openURL:options:'; { available in 9_0 }
+    function application_handleOpenURL (application: UIApplication; url: NSURL): boolean; message 'application:handleOpenURL:';
+    function application_openURL_sourceApplication_annotation (application: UIApplication; url: NSURL; sourceApplication: NSString; annotation: id): boolean; message 'application:openURL:sourceApplication:annotation:'; { available in 4_2 }
     procedure applicationDidReceiveMemoryWarning (application: UIApplication); message 'applicationDidReceiveMemoryWarning:';
     procedure applicationWillTerminate (application: UIApplication); message 'applicationWillTerminate:';
     procedure applicationSignificantTimeChange (application: UIApplication); message 'applicationSignificantTimeChange:';
@@ -310,30 +386,24 @@ type
     procedure application_didRegisterUserNotificationSettings (application: UIApplication; notificationSettings: UIUserNotificationSettings); message 'application:didRegisterUserNotificationSettings:'; { available in 8_0 }
     procedure application_didRegisterForRemoteNotificationsWithDeviceToken (application: UIApplication; deviceToken: NSData); message 'application:didRegisterForRemoteNotificationsWithDeviceToken:'; { available in 3_0 }
     procedure application_didFailToRegisterForRemoteNotificationsWithError (application: UIApplication; error: NSError); message 'application:didFailToRegisterForRemoteNotificationsWithError:'; { available in 3_0 }
-    procedure application_didReceiveRemoteNotification (application: UIApplication; userInfo: NSDictionary); message 'application:didReceiveRemoteNotification:'; deprecated 'in 3_0, 10_0, "Use UserNotifications Framework's -[UNUserNotificationCenterDelegate willPresentNotification:withCompletionHandler:] or -[UNUserNotificationCenterDelegate didReceiveNotificationResponse:withCompletionHandler:] for user visible notifications and -[UIApplicationDelegate application:didReceiveRemoteNotification:fetchCompletionHandler:] for silent remote notifications"';
-    procedure application_didReceiveLocalNotification (application: UIApplication; notification: UILocalNotification); message 'application:didReceiveLocalNotification:'; deprecated 'in 4_0, 10_0, "Use UserNotifications Framework's -[UNUserNotificationCenterDelegate willPresentNotification:withCompletionHandler:] or -[UNUserNotificationCenterDelegate didReceiveNotificationResponse:withCompletionHandler:]"';
-    procedure application_handleActionWithIdentifier_forLocalNotification_completionHandler (application: UIApplication; identifier: nullable NSStringPtr; notification: UILocalNotification; completionHandler: OpaqueCBlock); message 'application:handleActionWithIdentifier:forLocalNotification:completionHandler:'; deprecated 'in 8_0, 10_0, "Use UserNotifications Framework's -[UNUserNotificationCenterDelegate didReceiveNotificationResponse:withCompletionHandler:]"';
-    procedure application_handleActionWithIdentifier_forRemoteNotification_withResponseInfo_completionHandler (application: UIApplication; identifier: nullable NSStringPtr; userInfo: NSDictionary; responseInfo: NSDictionary; completionHandler: OpaqueCBlock); message 'application:handleActionWithIdentifier:forRemoteNotification:withResponseInfo:completionHandler:'; deprecated 'in 9_0, 10_0, "Use UserNotifications Framework's -[UNUserNotificationCenterDelegate didReceiveNotificationResponse:withCompletionHandler:]"';
-    procedure application_handleActionWithIdentifier_forRemoteNotification_completionHandler (application: UIApplication; identifier: nullable NSStringPtr; userInfo: NSDictionary; completionHandler: OpaqueCBlock); message 'application:handleActionWithIdentifier:forRemoteNotification:completionHandler:'; deprecated 'in 8_0, 10_0, "Use UserNotifications Framework's -[UNUserNotificationCenterDelegate didReceiveNotificationResponse:withCompletionHandler:]"';
-    procedure application_handleActionWithIdentifier_forLocalNotification_withResponseInfo_completionHandler (application: UIApplication; identifier: nullable NSStringPtr; notification: UILocalNotification; responseInfo: NSDictionary; completionHandler: OpaqueCBlock); message 'application:handleActionWithIdentifier:forLocalNotification:withResponseInfo:completionHandler:'; deprecated 'in 9_0, 10_0, "Use UserNotifications Framework's -[UNUserNotificationCenterDelegate didReceiveNotificationResponse:withCompletionHandler:]"';
+    procedure application_didReceiveRemoteNotification (application: UIApplication; userInfo: NSDictionary); message 'application:didReceiveRemoteNotification:'; { available in 3_0 }
+    procedure application_didReceiveLocalNotification (application: UIApplication; notification: UILocalNotification); message 'application:didReceiveLocalNotification:'; { available in 4_0 }
+    procedure application_handleActionWithIdentifier_forLocalNotification_completionHandler (application: UIApplication; identifier: NSString; notification: UILocalNotification; completionHandler: OpaqueCBlock); message 'application:handleActionWithIdentifier:forLocalNotification:completionHandler:'; { available in 8_0 }
+    procedure application_handleActionWithIdentifier_forRemoteNotification_completionHandler (application: UIApplication; identifier: NSString; userInfo: NSDictionary; completionHandler: OpaqueCBlock); message 'application:handleActionWithIdentifier:forRemoteNotification:completionHandler:'; { available in 8_0 }
     procedure application_didReceiveRemoteNotification_fetchCompletionHandler (application: UIApplication; userInfo: NSDictionary; completionHandler: OpaqueCBlock); message 'application:didReceiveRemoteNotification:fetchCompletionHandler:'; { available in 7_0 }
     procedure application_performFetchWithCompletionHandler (application: UIApplication; completionHandler: OpaqueCBlock); message 'application:performFetchWithCompletionHandler:'; { available in 7_0 }
     procedure application_performActionForShortcutItem_completionHandler (application: UIApplication; shortcutItem: UIApplicationShortcutItem; completionHandler: OpaqueCBlock); message 'application:performActionForShortcutItem:completionHandler:'; { available in 9_0 }
     procedure application_handleEventsForBackgroundURLSession_completionHandler (application: UIApplication; identifier: NSString; completionHandler: OpaqueCBlock); message 'application:handleEventsForBackgroundURLSession:completionHandler:'; { available in 7_0 }
-    procedure application_handleWatchKitExtensionRequest_reply (application: UIApplication; userInfo: nullable NSDictionaryPtr; reply: OpaqueCBlock); message 'application:handleWatchKitExtensionRequest:reply:'; { available in 8_2 }
-    procedure applicationShouldRequestHealthAuthorization (application: UIApplication); message 'applicationShouldRequestHealthAuthorization:'; { available in 9_0 }
+    procedure application_handleWatchKitExtensionRequest_reply (application: UIApplication; userInfo: NSDictionary; reply: OpaqueCBlock); message 'application:handleWatchKitExtensionRequest:reply:'; { available in 8_2 }
     procedure applicationDidEnterBackground (application: UIApplication); message 'applicationDidEnterBackground:'; { available in 4_0 }
     procedure applicationWillEnterForeground (application: UIApplication); message 'applicationWillEnterForeground:'; { available in 4_0 }
     procedure applicationProtectedDataWillBecomeUnavailable (application: UIApplication); message 'applicationProtectedDataWillBecomeUnavailable:'; { available in 4_0 }
     procedure applicationProtectedDataDidBecomeAvailable (application: UIApplication); message 'applicationProtectedDataDidBecomeAvailable:'; { available in 4_0 }
     procedure setWindow(newValue: UIWindow); message 'setWindow:';
     function window: UIWindow; message 'window';
-    function application_supportedInterfaceOrientationsForWindow (application: UIApplication; window_: nullable UIWindowPtr): UIInterfaceOrientationMask; message 'application:supportedInterfaceOrientationsForWindow:'; { available in 6_0 }
-    {$if defined(UIKIT_STRING_ENUMS)}
-    {$else}
-    {$endif}
-    function application_shouldAllowExtensionPointIdentifier (application: UIApplication; extensionPointIdentifier: UIApplicationExtensionPointIdentifier): boolean; message 'application:shouldAllowExtensionPointIdentifier:'; { available in 8_0 }
-    function application_viewControllerWithRestorationIdentifierPath_coder (application: UIApplication; identifierComponents: NSArray; coder: NSCoder): nullable UIViewControllerPtr; message 'application:viewControllerWithRestorationIdentifierPath:coder:'; { available in 6_0 }
+    function application_supportedInterfaceOrientationsForWindow (application: UIApplication; window_: UIWindow): NSUInteger; message 'application:supportedInterfaceOrientationsForWindow:'; { available in 6_0 }
+    function application_shouldAllowExtensionPointIdentifier (application: UIApplication; extensionPointIdentifier: NSString): boolean; message 'application:shouldAllowExtensionPointIdentifier:'; { available in 8_0 }
+    function application_viewControllerWithRestorationIdentifierPath_coder (application: UIApplication; identifierComponents: NSArray; coder: NSCoder): UIViewController; message 'application:viewControllerWithRestorationIdentifierPath:coder:'; { available in 6_0 }
     function application_shouldSaveApplicationState (application: UIApplication; coder: NSCoder): boolean; message 'application:shouldSaveApplicationState:'; { available in 6_0 }
     function application_shouldRestoreApplicationState (application: UIApplication; coder: NSCoder): boolean; message 'application:shouldRestoreApplicationState:'; { available in 6_0 }
     procedure application_willEncodeRestorableStateWithCoder (application: UIApplication; coder: NSCoder); message 'application:willEncodeRestorableStateWithCoder:'; { available in 6_0 }
@@ -350,8 +420,8 @@ type
 
 type
   UIApplicationDeprecated = objccategory external (UIApplication)
-    procedure set__TVOS_PROHIBITED(newValue: BOOL proximitySensingEnabled); message 'set__TVOS_PROHIBITED:';
-    function isProximitySensingEnabled: BOOL proximitySensingEnabled; message 'isProximitySensingEnabled';
+    procedure setProximitySensingEnabled(newValue: boolean); message 'setProximitySensingEnabled:';
+    function isProximitySensingEnabled: boolean; message 'isProximitySensingEnabled';
     procedure setStatusBarHidden_animated (hidden: boolean; animated: boolean); message 'setStatusBarHidden:animated:'; deprecated 'in 2_0, 3_2';
     procedure set__TVOS_PROHIBITED_(newValue: UIInterfaceOrientation statusBarOrientation); message 'set__TVOS_PROHIBITED:';
     function __TVOS_PROHIBITED_: UIInterfaceOrientation statusBarOrientation; message 'TVOS_PROHIBITED';
@@ -368,102 +438,56 @@ type
 {$endif}
 
 {$ifdef FUNCTIONS}
-function UIApplicationMain(argc: cint; argv: PChar { variable size array of PChar }; principalClassName: NSString* __nullable; delegateClassName: NSString* __nullable): cint; cdecl; external;
+function UIApplicationMain(argc: cint; argv: PChar { variable size array of PChar }; principalClassName: NSString; delegateClassName: NSString): cint; cdecl; external;
 {$endif}
 
 {$ifdef EXTERNAL_SYMBOLS}
 var
-  UITrackingRunLoopMode: NSRunLoopMode; cvar; external;
-  UIApplicationDidEnterBackgroundNotification: NSNotificationName { available in 4_0 }; cvar; external;
-  UIApplicationWillEnterForegroundNotification: NSNotificationName { available in 4_0 }; cvar; external;
-  UIApplicationDidFinishLaunchingNotification: NSNotificationName; cvar; external;
-  UIApplicationDidBecomeActiveNotification: NSNotificationName; cvar; external;
-  UIApplicationWillResignActiveNotification: NSNotificationName; cvar; external;
-  UIApplicationDidReceiveMemoryWarningNotification: NSNotificationName; cvar; external;
-  UIApplicationWillTerminateNotification: NSNotificationName; cvar; external;
-  UIApplicationSignificantTimeChangeNotification: NSNotificationName; cvar; external;
-  __TVOS_PROHIBITED: NSNotificationName UIApplicationWillChangeStatusBarOrientationNotification; cvar; external;
-  __TVOS_PROHIBITED: NSNotificationName UIApplicationDidChangeStatusBarOrientationNotification; cvar; external;
-  __TVOS_PROHIBITED: NSString *UIApplicationStatusBarOrientationUserInfoKey; cvar; external;
-  __TVOS_PROHIBITED: NSNotificationName UIApplicationWillChangeStatusBarFrameNotification; cvar; external;
-  __TVOS_PROHIBITED: NSNotificationName UIApplicationDidChangeStatusBarFrameNotification; cvar; external;
-  __TVOS_PROHIBITED: NSString *UIApplicationStatusBarFrameUserInfoKey; cvar; external;
-  __TVOS_PROHIBITED: NSNotificationName UIApplicationBackgroundRefreshStatusDidChangeNotification { available in 7_0 }; cvar; external;
-  UIApplicationProtectedDataWillBecomeUnavailable: NSNotificationName { available in 4_0 }; cvar; external;
-  UIApplicationProtectedDataDidBecomeAvailable: NSNotificationName { available in 4_0 }; cvar; external;
-{$endif}
-
-{$if defined(UIKIT_STRING_ENUMS)}
-{$ifdef FUNCTIONS}
-function NS_SWIFT_NAME(param1: url): UIApplicationLaunchOptionsKey  UIApplicationLaunchOptionsURLKey; cdecl; external; { available in 3_0 }
-function NS_SWIFT_NAME_(param1: sourceApplication): UIApplicationLaunchOptionsKey  UIApplicationLaunchOptionsSourceApplicationKey; cdecl; external; { available in 3_0 }
-function NS_SWIFT_NAME__(param1: annotation): UIApplicationLaunchOptionsKey  UIApplicationLaunchOptionsAnnotationKey; cdecl; external; { available in 3_2 }
-function NS_SWIFT_NAME___(param1: location): UIApplicationLaunchOptionsKey  UIApplicationLaunchOptionsLocationKey; cdecl; external; { available in 4_0 }
-function NS_SWIFT_NAME____(param1: bluetoothCentrals): UIApplicationLaunchOptionsKey  UIApplicationLaunchOptionsBluetoothCentralsKey; cdecl; external; { available in 7_0 }
-function NS_SWIFT_NAME_____(param1: bluetoothPeripherals): UIApplicationLaunchOptionsKey  UIApplicationLaunchOptionsBluetoothPeripheralsKey; cdecl; external; { available in 7_0 }
-function NS_SWIFT_NAME______(param1: userActivityDictionary): UIApplicationLaunchOptionsKey  UIApplicationLaunchOptionsUserActivityDictionaryKey; cdecl; external; { available in 8_0 }
-function NS_SWIFT_NAME_______(param1: userActivityType): UIApplicationLaunchOptionsKey  UIApplicationLaunchOptionsUserActivityTypeKey; cdecl; external; { available in 8_0 }
-{$endif}
-
-{$else}
-{$ifdef EXTERNAL_SYMBOLS}
-var
-  UIApplicationLaunchOptionsURLKey: UIApplicationLaunchOptionsKey { available in 3_0 }; cvar; external;
-  UIApplicationLaunchOptionsSourceApplicationKey: UIApplicationLaunchOptionsKey { available in 3_0 }; cvar; external;
-  __TVOS_PROHIBITED: UIApplicationLaunchOptionsKey UIApplicationLaunchOptionsRemoteNotificationKey { available in 3_0 }; cvar; external;
-  __TVOS_PROHIBITED: UIApplicationLaunchOptionsKey UIApplicationLaunchOptionsLocalNotificationKey deprecated 'in 4_0, 10_0, "Use UserNotifications Framework's -[UNUserNotificationCenterDelegate didReceiveNotificationResponse:withCompletionHandler:]"'; cvar; external;
-  UIApplicationLaunchOptionsAnnotationKey: UIApplicationLaunchOptionsKey { available in 3_2 }; cvar; external;
-  UIApplicationLaunchOptionsLocationKey: UIApplicationLaunchOptionsKey { available in 4_0 }; cvar; external;
-  __TVOS_PROHIBITED: UIApplicationLaunchOptionsKey UIApplicationLaunchOptionsNewsstandDownloadsKey { available in 5_0 }; cvar; external;
-  UIApplicationLaunchOptionsBluetoothCentralsKey: UIApplicationLaunchOptionsKey { available in 7_0 }; cvar; external;
-  UIApplicationLaunchOptionsBluetoothPeripheralsKey: UIApplicationLaunchOptionsKey { available in 7_0 }; cvar; external;
-  __TVOS_PROHIBITED: UIApplicationLaunchOptionsKey UIApplicationLaunchOptionsShortcutItemKey { available in 9_0 }; cvar; external;
-  UIApplicationLaunchOptionsUserActivityDictionaryKey: UIApplicationLaunchOptionsKey { available in 8_0 }; cvar; external;
-  UIApplicationLaunchOptionsUserActivityTypeKey: UIApplicationLaunchOptionsKey { available in 8_0 }; cvar; external;
-  __TVOS_PROHIBITED: UIApplicationLaunchOptionsKey UIApplicationLaunchOptionsCloudKitShareMetadataKey { available in 10_0 }; cvar; external;
-{$endif}
-
-{$endif}
-{$ifdef EXTERNAL_SYMBOLS}
-var
+  UITrackingRunLoopMode: NSString; cvar; external;
+  UIApplicationDidEnterBackgroundNotification: NSString { available in 4_0 }; cvar; external;
+  UIApplicationWillEnterForegroundNotification: NSString { available in 4_0 }; cvar; external;
+  UIApplicationDidFinishLaunchingNotification: NSString; cvar; external;
+  UIApplicationDidBecomeActiveNotification: NSString; cvar; external;
+  UIApplicationWillResignActiveNotification: NSString; cvar; external;
+  UIApplicationDidReceiveMemoryWarningNotification: NSString; cvar; external;
+  UIApplicationWillTerminateNotification: NSString; cvar; external;
+  UIApplicationSignificantTimeChangeNotification: NSString; cvar; external;
+  UIApplicationWillChangeStatusBarOrientationNotification: NSString; cvar; external;
+  UIApplicationDidChangeStatusBarOrientationNotification: NSString; cvar; external;
+  UIApplicationStatusBarOrientationUserInfoKey: NSString; cvar; external;
+  UIApplicationWillChangeStatusBarFrameNotification: NSString; cvar; external;
+  UIApplicationDidChangeStatusBarFrameNotification: NSString; cvar; external;
+  UIApplicationStatusBarFrameUserInfoKey: NSString; cvar; external;
+  UIApplicationBackgroundRefreshStatusDidChangeNotification: NSString { available in 7_0 }; cvar; external;
+  UIApplicationLaunchOptionsURLKey: NSString { available in 3_0 }; cvar; external;
+  UIApplicationLaunchOptionsSourceApplicationKey: NSString { available in 3_0 }; cvar; external;
+  UIApplicationLaunchOptionsRemoteNotificationKey: NSString { available in 3_0 }; cvar; external;
+  UIApplicationLaunchOptionsLocalNotificationKey: NSString { available in 4_0 }; cvar; external;
+  UIApplicationLaunchOptionsAnnotationKey: NSString { available in 3_2 }; cvar; external;
+  UIApplicationProtectedDataWillBecomeUnavailable: NSString { available in 4_0 }; cvar; external;
+  UIApplicationProtectedDataDidBecomeAvailable: NSString { available in 4_0 }; cvar; external;
+  UIApplicationLaunchOptionsLocationKey: NSString { available in 4_0 }; cvar; external;
+  UIApplicationLaunchOptionsNewsstandDownloadsKey: NSString { available in 5_0 }; cvar; external;
+  UIApplicationLaunchOptionsBluetoothCentralsKey: NSString { available in 7_0 }; cvar; external;
+  UIApplicationLaunchOptionsBluetoothPeripheralsKey: NSString { available in 7_0 }; cvar; external;
+  UIApplicationLaunchOptionsUserActivityDictionaryKey: NSString { available in 8_0 }; cvar; external;
+  UIApplicationLaunchOptionsUserActivityTypeKey: NSString { available in 8_0 }; cvar; external;
   UIApplicationOpenSettingsURLString: NSString { available in 8_0 }; cvar; external;
-{$endif}
-
-{$if defined(UIKIT_STRING_ENUMS)}
-{$ifdef FUNCTIONS}
-function NS_SWIFT_NAME________(param1: sourceApplication): UIApplicationOpenURLOptionsKey  UIApplicationOpenURLOptionsSourceApplicationKey; cdecl; external; { available in 9_0 }
-function NS_SWIFT_NAME_________(param1: annotation): UIApplicationOpenURLOptionsKey  UIApplicationOpenURLOptionsAnnotationKey; cdecl; external; { available in 9_0 }
-function NS_SWIFT_NAME__________(param1: openInPlace): UIApplicationOpenURLOptionsKey  UIApplicationOpenURLOptionsOpenInPlaceKey; cdecl; external; { available in 9_0 }
-{$endif}
-
-{$else}
-{$ifdef EXTERNAL_SYMBOLS}
-var
-  UIApplicationOpenURLOptionsSourceApplicationKey: UIApplicationOpenURLOptionsKey { available in 9_0 }; cvar; external;
-  UIApplicationOpenURLOptionsAnnotationKey: UIApplicationOpenURLOptionsKey { available in 9_0 }; cvar; external;
-  UIApplicationOpenURLOptionsOpenInPlaceKey: UIApplicationOpenURLOptionsKey { available in 9_0 }; cvar; external;
-{$endif}
-
-{$endif}
-{$ifdef EXTERNAL_SYMBOLS}
-var
-  UIApplicationUserDidTakeScreenshotNotification: NSNotificationName { available in 7_0 }; cvar; external;
-{$endif}
-
-{$if defined(UIKIT_STRING_ENUMS)}
-{$ifdef FUNCTIONS}
-function NS_SWIFT_NAME___________(param1: keyboard): UIApplicationExtensionPointIdentifier  UIApplicationKeyboardExtensionPointIdentifier; cdecl; external; { available in 8_0 }
-{$endif}
-
-{$else}
-{$ifdef EXTERNAL_SYMBOLS}
-var
-  UIApplicationKeyboardExtensionPointIdentifier: UIApplicationExtensionPointIdentifier { available in 8_0 }; cvar; external;
-{$endif}
-
-{$endif}
-{$ifdef EXTERNAL_SYMBOLS}
-var
-  UIApplicationOpenURLOptionUniversalLinksOnly: NSString { available in 10_0 }; cvar; external;
+  UIContentSizeCategoryExtraSmall: NSString { available in 7_0 }; cvar; external;
+  UIContentSizeCategorySmall: NSString { available in 7_0 }; cvar; external;
+  UIContentSizeCategoryMedium: NSString { available in 7_0 }; cvar; external;
+  UIContentSizeCategoryLarge: NSString { available in 7_0 }; cvar; external;
+  UIContentSizeCategoryExtraLarge: NSString { available in 7_0 }; cvar; external;
+  UIContentSizeCategoryExtraExtraLarge: NSString { available in 7_0 }; cvar; external;
+  UIContentSizeCategoryExtraExtraExtraLarge: NSString { available in 7_0 }; cvar; external;
+  UIContentSizeCategoryAccessibilityMedium: NSString { available in 7_0 }; cvar; external;
+  UIContentSizeCategoryAccessibilityLarge: NSString { available in 7_0 }; cvar; external;
+  UIContentSizeCategoryAccessibilityExtraLarge: NSString { available in 7_0 }; cvar; external;
+  UIContentSizeCategoryAccessibilityExtraExtraLarge: NSString { available in 7_0 }; cvar; external;
+  UIContentSizeCategoryAccessibilityExtraExtraExtraLarge: NSString { available in 7_0 }; cvar; external;
+  UIContentSizeCategoryDidChangeNotification: NSString { available in 7_0 }; cvar; external;
+  UIContentSizeCategoryNewValueKey: NSString { available in 7_0 }; cvar; external;
+  UIApplicationUserDidTakeScreenshotNotification: NSString { available in 7_0 }; cvar; external;
+  UIApplicationKeyboardExtensionPointIdentifier: NSString { available in 8_0 }; cvar; external;
 {$endif}
 
